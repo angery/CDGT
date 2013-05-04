@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Enterprise.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EnterpriseStoreContainer">
+          <EntitySet Name="DRIVER" EntityType="Enterprise.Store.DRIVER" store:Type="Tables" Schema="RSUBD" />
+          <EntitySet Name="ROLES" EntityType="Enterprise.Store.ROLES" store:Type="Tables" Schema="RSUBD" />
+          <EntitySet Name="TCO" EntityType="Enterprise.Store.TCO" store:Type="Tables" Schema="RSUBD" />
+          <EntitySet Name="USERS" EntityType="Enterprise.Store.USERS" store:Type="Tables" Schema="RSUBD" />
+          <EntitySet Name="WAYBILLS" EntityType="Enterprise.Store.WAYBILLS" store:Type="Tables" Schema="RSUBD" />
+          <AssociationSet Name="USERS_ROLES_FK" Association="Enterprise.Store.USERS_ROLES_FK">
+            <End Role="ROLES" EntitySet="ROLES" />
+            <End Role="USERS" EntitySet="USERS" />
+          </AssociationSet>
+          <AssociationSet Name="WB_DRIVER_FK" Association="Enterprise.Store.WB_DRIVER_FK">
+            <End Role="DRIVER" EntitySet="DRIVER" />
+            <End Role="WAYBILLS" EntitySet="WAYBILLS" />
+          </AssociationSet>
+          <AssociationSet Name="WB_TCO_FK" Association="Enterprise.Store.WB_TCO_FK">
+            <End Role="TCO" EntitySet="TCO" />
+            <End Role="WAYBILLS" EntitySet="WAYBILLS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DRIVER">
+          <Key>
+            <PropertyRef Name="DRIVER_ID" />
+          </Key>
+          <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="255" />
+          <Property Name="DRIVER_ID" Type="number" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="ROLES">
+          <Key>
+            <PropertyRef Name="ROLE_ID" />
+          </Key>
+          <Property Name="ROLE_NAME" Type="varchar2" MaxLength="20" />
+          <Property Name="ROLE_ID" Type="number" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="TCO">
+          <Key>
+            <PropertyRef Name="STATE_NUMBER" />
+          </Key>
+          <Property Name="STATE_NUMBER" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="AT_ID" Type="varchar2" MaxLength="20" />
+          <Property Name="MARK" Type="varchar2" MaxLength="50" />
+          <Property Name="MODEL" Type="varchar2" MaxLength="50" />
+          <Property Name="WEIGHT" Type="number" Precision="7" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+          </Key>
+          <Property Name="USERNAME" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="PASSWORD" Type="varchar2" MaxLength="50" />
+          <Property Name="NAME" Type="varchar2" MaxLength="255" />
+          <Property Name="USER_ID" Type="varchar2" MaxLength="7" />
+          <Property Name="ROLE_ID" Type="number" Precision="7" />
+        </EntityType>
+        <EntityType Name="WAYBILLS">
+          <Key>
+            <PropertyRef Name="WAYBILL_ID" />
+          </Key>
+          <Property Name="WAYBILL_ID" Type="number" Nullable="false" Precision="7" />
+          <Property Name="TCO" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="DRIVER" Type="number" Precision="7" />
+          <Property Name="FUEL_GIVEN" Type="number" Precision="5" />
+          <Property Name="FUEL_LOST" Type="number" Precision="5" />
+          <Property Name="MILEAGE_START" Type="number" Precision="10" />
+          <Property Name="MILEAGE_FINISH" Type="number" Precision="10" />
+          <Property Name="STATUS" Type="number" Precision="7" />
+        </EntityType>
+        <Association Name="USERS_ROLES_FK">
+          <End Role="ROLES" Type="Enterprise.Store.ROLES" Multiplicity="0..1" />
+          <End Role="USERS" Type="Enterprise.Store.USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="ROLE_ID" />
+            </Principal>
+            <Dependent Role="USERS">
+              <PropertyRef Name="ROLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WB_DRIVER_FK">
+          <End Role="DRIVER" Type="Enterprise.Store.DRIVER" Multiplicity="0..1" />
+          <End Role="WAYBILLS" Type="Enterprise.Store.WAYBILLS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DRIVER">
+              <PropertyRef Name="DRIVER_ID" />
+            </Principal>
+            <Dependent Role="WAYBILLS">
+              <PropertyRef Name="DRIVER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WB_TCO_FK">
+          <End Role="TCO" Type="Enterprise.Store.TCO" Multiplicity="1" />
+          <End Role="WAYBILLS" Type="Enterprise.Store.WAYBILLS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TCO">
+              <PropertyRef Name="STATE_NUMBER" />
+            </Principal>
+            <Dependent Role="WAYBILLS">
+              <PropertyRef Name="TCO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Enterprise" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="EnterpriseContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DRIVERs" EntityType="Enterprise.DRIVER" />
+          <EntitySet Name="TCOes" EntityType="Enterprise.TCO" />
+          <EntitySet Name="WAYBILLS" EntityType="Enterprise.WAYBILL" />
+          <AssociationSet Name="WB_DRIVER_FK" Association="Enterprise.WB_DRIVER_FK">
+            <End Role="DRIVER" EntitySet="DRIVERs" />
+            <End Role="WAYBILL" EntitySet="WAYBILLS" />
+          </AssociationSet>
+          <AssociationSet Name="WB_TCO_FK" Association="Enterprise.WB_TCO_FK">
+            <End Role="TCO" EntitySet="TCOes" />
+            <End Role="WAYBILL" EntitySet="WAYBILLS" />
+          </AssociationSet>
+          <EntitySet Name="USERS" EntityType="Enterprise.USER" />
+          <EntitySet Name="ROLES" EntityType="Enterprise.ROLE" />
+          <AssociationSet Name="USERS_ROLES_FK" Association="Enterprise.USERS_ROLES_FK">
+            <End Role="ROLE" EntitySet="ROLES" />
+            <End Role="USER" EntitySet="USERS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DRIVER">
+          <Key>
+            <PropertyRef Name="DRIVER_ID" />
+          </Key>
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="DRIVER_ID" Nullable="false" />
+          <NavigationProperty Name="WAYBILLS" Relationship="Enterprise.WB_DRIVER_FK" FromRole="DRIVER" ToRole="WAYBILL" />
+        </EntityType>
+        <EntityType Name="TCO">
+          <Key>
+            <PropertyRef Name="STATE_NUMBER" />
+          </Key>
+          <Property Type="String" Name="STATE_NUMBER" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AT_ID" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MARK" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MODEL" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="WEIGHT" />
+          <NavigationProperty Name="WAYBILLS" Relationship="Enterprise.WB_TCO_FK" FromRole="TCO" ToRole="WAYBILL" />
+        </EntityType>
+        <EntityType Name="WAYBILL">
+          <Key>
+            <PropertyRef Name="WAYBILL_ID" />
+          </Key>
+          <Property Type="Int32" Name="WAYBILL_ID" Nullable="false" />
+          <Property Type="String" Name="TCO" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="DRIVER" />
+          <Property Type="Int16" Name="FUEL_GIVEN" />
+          <Property Type="Int16" Name="FUEL_LOST" />
+          <Property Type="Int32" Name="MILEAGE_START" />
+          <Property Type="Int32" Name="MILEAGE_FINISH" />
+          <Property Type="Int32" Name="STATUS" />
+          <NavigationProperty Name="DRIVER1" Relationship="Enterprise.WB_DRIVER_FK" FromRole="WAYBILL" ToRole="DRIVER" />
+          <NavigationProperty Name="TCO1" Relationship="Enterprise.WB_TCO_FK" FromRole="WAYBILL" ToRole="TCO" />
+        </EntityType>
+        <Association Name="WB_DRIVER_FK">
+          <End Type="Enterprise.DRIVER" Role="DRIVER" Multiplicity="0..1" />
+          <End Type="Enterprise.WAYBILL" Role="WAYBILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DRIVER">
+              <PropertyRef Name="DRIVER_ID" />
+            </Principal>
+            <Dependent Role="WAYBILL">
+              <PropertyRef Name="DRIVER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WB_TCO_FK">
+          <End Type="Enterprise.TCO" Role="TCO" Multiplicity="1" />
+          <End Type="Enterprise.WAYBILL" Role="WAYBILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TCO">
+              <PropertyRef Name="STATE_NUMBER" />
+            </Principal>
+            <Dependent Role="WAYBILL">
+              <PropertyRef Name="TCO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+          </Key>
+          <Property Type="String" Name="USERNAME" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PASSWORD" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="USER_ID" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ROLE_ID" />
+          <NavigationProperty Name="ROLE" Relationship="Enterprise.USERS_ROLES_FK" FromRole="USER" ToRole="ROLE" />
+        </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="ROLE_ID" />
+          </Key>
+          <Property Type="String" Name="ROLE_NAME" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ROLE_ID" Nullable="false" />
+          <NavigationProperty Name="USERS" Relationship="Enterprise.USERS_ROLES_FK" FromRole="ROLE" ToRole="USER" />
+        </EntityType>
+        <Association Name="USERS_ROLES_FK">
+          <End Type="Enterprise.ROLE" Role="ROLE" Multiplicity="0..1" />
+          <End Type="Enterprise.USER" Role="USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLE">
+              <PropertyRef Name="ROLE_ID" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="ROLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Enterprise" />
+        <Alias Key="Target" Value="Enterprise.Store" />
+        <EntityContainerMapping CdmEntityContainer="EnterpriseContainer" StorageEntityContainer="EnterpriseStoreContainer">
+          <EntitySetMapping Name="DRIVERs">
+            <EntityTypeMapping TypeName="Enterprise.DRIVER">
+              <MappingFragment StoreEntitySet="DRIVER">
+                <ScalarProperty Name="DRIVER_ID" ColumnName="DRIVER_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TCOes">
+            <EntityTypeMapping TypeName="Enterprise.TCO">
+              <MappingFragment StoreEntitySet="TCO">
+                <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+                <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+                <ScalarProperty Name="MARK" ColumnName="MARK" />
+                <ScalarProperty Name="AT_ID" ColumnName="AT_ID" />
+                <ScalarProperty Name="STATE_NUMBER" ColumnName="STATE_NUMBER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WAYBILLS">
+            <EntityTypeMapping TypeName="Enterprise.WAYBILL">
+              <MappingFragment StoreEntitySet="WAYBILLS">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="MILEAGE_FINISH" ColumnName="MILEAGE_FINISH" />
+                <ScalarProperty Name="MILEAGE_START" ColumnName="MILEAGE_START" />
+                <ScalarProperty Name="FUEL_LOST" ColumnName="FUEL_LOST" />
+                <ScalarProperty Name="FUEL_GIVEN" ColumnName="FUEL_GIVEN" />
+                <ScalarProperty Name="DRIVER" ColumnName="DRIVER" />
+                <ScalarProperty Name="TCO" ColumnName="TCO" />
+                <ScalarProperty Name="WAYBILL_ID" ColumnName="WAYBILL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="Enterprise.USER">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLES">
+            <EntityTypeMapping TypeName="Enterprise.ROLE">
+              <MappingFragment StoreEntitySet="ROLES">
+                <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+                <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Enterprise" ZoomLevel="64" >
+        <EntityTypeShape EntityType="Enterprise.DRIVER" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4233821614583335" />
+        <EntityTypeShape EntityType="Enterprise.TCO" Width="1.5" PointX="3" PointY="0.75" Height="1.9802864583333326" />
+        <EntityTypeShape EntityType="Enterprise.WAYBILL" Width="1.5" PointX="5.25" PointY="0.75" Height="2.9417936197916656" />
+        <AssociationConnector Association="Enterprise.WB_DRIVER_FK" >
+          <ConnectorPoint PointX="1.5" PointY="2.34568359375" />
+          <ConnectorPoint PointX="1.5" PointY="3.3384407552083331" />
+          <ConnectorPoint PointX="5.25" PointY="3.3384407552083331" />
+        </AssociationConnector>
+        <AssociationConnector Association="Enterprise.WB_TCO_FK" >
+          <ConnectorPoint PointX="4.5" PointY="1.8362939453125002" />
+          <ConnectorPoint PointX="5.25" PointY="1.8362939453125002" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Enterprise.USER" Width="1.5" PointX="0.75" PointY="3.75" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="Enterprise.ROLE" Width="1.5" PointX="3.75" PointY="5.125" Height="1.5956835937499996" />
+        <AssociationConnector Association="Enterprise.USERS_ROLES_FK" >
+          <ConnectorPoint PointX="3.75" PointY="5.5237939453125" />
+          <ConnectorPoint PointX="2.25" PointY="5.5237939453125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

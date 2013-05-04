@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SupervisionModel.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="SupervisionModelStoreContainer">
+    <EntitySet Name="CARGO_TYPES" EntityType="SupervisionModel.Store.CARGO_TYPES" store:Type="Tables" Schema="UGADN" />
+    <EntitySet Name="LOGGER_UGADN" EntityType="SupervisionModel.Store.LOGGER_UGADN" store:Type="Tables" Schema="UGADN" />
+    <EntitySet Name="ORGANIZATIONS" EntityType="SupervisionModel.Store.ORGANIZATIONS" store:Type="Tables" Schema="UGADN" />
+    <EntitySet Name="SPECIAL_PERMITS" EntityType="SupervisionModel.Store.SPECIAL_PERMITS" store:Type="Tables" Schema="UGADN" />
+    <EntitySet Name="USERS" EntityType="SupervisionModel.Store.USERS" store:Type="Tables" Schema="UGADN" />
+    <AssociationSet Name="ORG_CARGO_FK" Association="SupervisionModel.Store.ORG_CARGO_FK">
+      <End Role="CARGO_TYPES" EntitySet="CARGO_TYPES" />
+      <End Role="SPECIAL_PERMITS" EntitySet="SPECIAL_PERMITS" />
+    </AssociationSet>
+    <AssociationSet Name="SP_ORG_FK" Association="SupervisionModel.Store.SP_ORG_FK">
+      <End Role="ORGANIZATIONS" EntitySet="ORGANIZATIONS" />
+      <End Role="SPECIAL_PERMITS" EntitySet="SPECIAL_PERMITS" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CARGO_TYPES">
+    <Key>
+      <PropertyRef Name="CODE" />
+    </Key>
+    <Property Name="CODE" Type="number" Nullable="false" Precision="7" />
+    <Property Name="TITLE" Type="varchar2" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LOGGER_UGADN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="MESSAGE" Type="varchar2" MaxLength="20" />
+    <Property Name="ID" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORGANIZATIONS">
+    <Key>
+      <PropertyRef Name="ORGANIZATION_ID" />
+    </Key>
+    <Property Name="ORGANIZATION_ID" Type="number" Nullable="false" Precision="7" />
+    <Property Name="TITLE" Type="varchar2" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SPECIAL_PERMITS">
+    <Key>
+      <PropertyRef Name="SP_ID" />
+    </Key>
+    <Property Name="SP_ID" Type="number" Nullable="false" Precision="7" />
+    <Property Name="ORGANIZATION_ID" Type="number" Nullable="false" Precision="7" />
+    <Property Name="ROUTE_DESCRIPTION" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="START_DATE" Type="date" Nullable="false" />
+    <Property Name="FINISH_DATE" Type="date" Nullable="false" />
+    <Property Name="CARGO_TYPE" Type="number" Nullable="false" Precision="7" />
+    <Property Name="STATUS" Type="number" Precision="1" />
+    <Property Name="TRIPS_COUNT" Type="number" Precision="7" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="USERNAME" />
+    </Key>
+    <Property Name="USERNAME" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="PASSWORD" Type="varchar2" MaxLength="50" />
+    <Property Name="NAME" Type="varchar2" MaxLength="255" />
+  </EntityType>
+  <Association Name="ORG_CARGO_FK">
+    <End Role="CARGO_TYPES" Type="SupervisionModel.Store.CARGO_TYPES" Multiplicity="1" />
+    <End Role="SPECIAL_PERMITS" Type="SupervisionModel.Store.SPECIAL_PERMITS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARGO_TYPES">
+        <PropertyRef Name="CODE" />
+      </Principal>
+      <Dependent Role="SPECIAL_PERMITS">
+        <PropertyRef Name="CARGO_TYPE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SP_ORG_FK">
+    <End Role="ORGANIZATIONS" Type="SupervisionModel.Store.ORGANIZATIONS" Multiplicity="1" />
+    <End Role="SPECIAL_PERMITS" Type="SupervisionModel.Store.SPECIAL_PERMITS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORGANIZATIONS">
+        <PropertyRef Name="ORGANIZATION_ID" />
+      </Principal>
+      <Dependent Role="SPECIAL_PERMITS">
+        <PropertyRef Name="ORGANIZATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

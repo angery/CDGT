@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="Enterprise" />
+  <Alias Key="Target" Value="Enterprise.Store" />
+  <EntityContainerMapping CdmEntityContainer="EnterpriseContainer" StorageEntityContainer="EnterpriseStoreContainer">
+    <EntitySetMapping Name="DRIVERs">
+      <EntityTypeMapping TypeName="Enterprise.DRIVER">
+        <MappingFragment StoreEntitySet="DRIVER">
+          <ScalarProperty Name="DRIVER_ID" ColumnName="DRIVER_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCOes">
+      <EntityTypeMapping TypeName="Enterprise.TCO">
+        <MappingFragment StoreEntitySet="TCO">
+          <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+          <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+          <ScalarProperty Name="MARK" ColumnName="MARK" />
+          <ScalarProperty Name="AT_ID" ColumnName="AT_ID" />
+          <ScalarProperty Name="STATE_NUMBER" ColumnName="STATE_NUMBER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WAYBILLS">
+      <EntityTypeMapping TypeName="Enterprise.WAYBILL">
+        <MappingFragment StoreEntitySet="WAYBILLS">
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="MILEAGE_FINISH" ColumnName="MILEAGE_FINISH" />
+          <ScalarProperty Name="MILEAGE_START" ColumnName="MILEAGE_START" />
+          <ScalarProperty Name="FUEL_LOST" ColumnName="FUEL_LOST" />
+          <ScalarProperty Name="FUEL_GIVEN" ColumnName="FUEL_GIVEN" />
+          <ScalarProperty Name="DRIVER" ColumnName="DRIVER" />
+          <ScalarProperty Name="TCO" ColumnName="TCO" />
+          <ScalarProperty Name="WAYBILL_ID" ColumnName="WAYBILL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="Enterprise.USER">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLES">
+      <EntityTypeMapping TypeName="Enterprise.ROLE">
+        <MappingFragment StoreEntitySet="ROLES">
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+          <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

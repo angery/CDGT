@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SupervisionModelStoreContainer" CdmEntityContainer="SupervisionEntities">
+    <EntitySetMapping Name="CARGO_TYPES">
+      <EntityTypeMapping TypeName="SupervisionModel.CARGO_TYPES">
+        <MappingFragment StoreEntitySet="CARGO_TYPES">
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOGGER_UGADN">
+      <EntityTypeMapping TypeName="SupervisionModel.LOGGER_UGADN">
+        <MappingFragment StoreEntitySet="LOGGER_UGADN">
+          <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORGANIZATIONS">
+      <EntityTypeMapping TypeName="SupervisionModel.ORGANIZATION">
+        <MappingFragment StoreEntitySet="ORGANIZATIONS">
+          <ScalarProperty Name="ORGANIZATION_ID" ColumnName="ORGANIZATION_ID" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPECIAL_PERMITS">
+      <EntityTypeMapping TypeName="SupervisionModel.SPECIAL_PERMITS">
+        <MappingFragment StoreEntitySet="SPECIAL_PERMITS">
+          <ScalarProperty Name="SP_ID" ColumnName="SP_ID" />
+          <ScalarProperty Name="ORGANIZATION_ID" ColumnName="ORGANIZATION_ID" />
+          <ScalarProperty Name="ROUTE_DESCRIPTION" ColumnName="ROUTE_DESCRIPTION" />
+          <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
+          <ScalarProperty Name="FINISH_DATE" ColumnName="FINISH_DATE" />
+          <ScalarProperty Name="CARGO_TYPE" ColumnName="CARGO_TYPE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="TRIPS_COUNT" ColumnName="TRIPS_COUNT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="SupervisionModel.USER">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

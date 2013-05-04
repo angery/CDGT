@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SupervisionModel.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SupervisionModelStoreContainer">
+          <EntitySet Name="CARGO_TYPES" EntityType="SupervisionModel.Store.CARGO_TYPES" store:Type="Tables" Schema="UGADN" />
+          <EntitySet Name="LOGGER_UGADN" EntityType="SupervisionModel.Store.LOGGER_UGADN" store:Type="Tables" Schema="UGADN" />
+          <EntitySet Name="ORGANIZATIONS" EntityType="SupervisionModel.Store.ORGANIZATIONS" store:Type="Tables" Schema="UGADN" />
+          <EntitySet Name="SPECIAL_PERMITS" EntityType="SupervisionModel.Store.SPECIAL_PERMITS" store:Type="Tables" Schema="UGADN" />
+          <EntitySet Name="USERS" EntityType="SupervisionModel.Store.USERS" store:Type="Tables" Schema="UGADN" />
+          <AssociationSet Name="ORG_CARGO_FK" Association="SupervisionModel.Store.ORG_CARGO_FK">
+            <End Role="CARGO_TYPES" EntitySet="CARGO_TYPES" />
+            <End Role="SPECIAL_PERMITS" EntitySet="SPECIAL_PERMITS" />
+          </AssociationSet>
+          <AssociationSet Name="SP_ORG_FK" Association="SupervisionModel.Store.SP_ORG_FK">
+            <End Role="ORGANIZATIONS" EntitySet="ORGANIZATIONS" />
+            <End Role="SPECIAL_PERMITS" EntitySet="SPECIAL_PERMITS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CARGO_TYPES">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="number" Nullable="false" Precision="7" />
+          <Property Name="TITLE" Type="varchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LOGGER_UGADN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MESSAGE" Type="varchar2" MaxLength="20" />
+          <Property Name="ID" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORGANIZATIONS">
+          <Key>
+            <PropertyRef Name="ORGANIZATION_ID" />
+          </Key>
+          <Property Name="ORGANIZATION_ID" Type="number" Nullable="false" Precision="7" />
+          <Property Name="TITLE" Type="varchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SPECIAL_PERMITS">
+          <Key>
+            <PropertyRef Name="SP_ID" />
+          </Key>
+          <Property Name="SP_ID" Type="number" Nullable="false" Precision="7" />
+          <Property Name="ORGANIZATION_ID" Type="number" Nullable="false" Precision="7" />
+          <Property Name="ROUTE_DESCRIPTION" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="START_DATE" Type="date" Nullable="false" />
+          <Property Name="FINISH_DATE" Type="date" Nullable="false" />
+          <Property Name="CARGO_TYPE" Type="number" Nullable="false" Precision="7" />
+          <Property Name="STATUS" Type="number" Precision="1" />
+          <Property Name="TRIPS_COUNT" Type="number" Precision="7" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+          </Key>
+          <Property Name="USERNAME" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="PASSWORD" Type="varchar2" MaxLength="50" />
+          <Property Name="NAME" Type="varchar2" MaxLength="255" />
+        </EntityType>
+        <Association Name="ORG_CARGO_FK">
+          <End Role="CARGO_TYPES" Type="SupervisionModel.Store.CARGO_TYPES" Multiplicity="1" />
+          <End Role="SPECIAL_PERMITS" Type="SupervisionModel.Store.SPECIAL_PERMITS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARGO_TYPES">
+              <PropertyRef Name="CODE" />
+            </Principal>
+            <Dependent Role="SPECIAL_PERMITS">
+              <PropertyRef Name="CARGO_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SP_ORG_FK">
+          <End Role="ORGANIZATIONS" Type="SupervisionModel.Store.ORGANIZATIONS" Multiplicity="1" />
+          <End Role="SPECIAL_PERMITS" Type="SupervisionModel.Store.SPECIAL_PERMITS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZATIONS">
+              <PropertyRef Name="ORGANIZATION_ID" />
+            </Principal>
+            <Dependent Role="SPECIAL_PERMITS">
+              <PropertyRef Name="ORGANIZATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SupervisionModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SupervisionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CARGO_TYPES" EntityType="SupervisionModel.CARGO_TYPES" />
+          <EntitySet Name="LOGGER_UGADN" EntityType="SupervisionModel.LOGGER_UGADN" />
+          <EntitySet Name="ORGANIZATIONS" EntityType="SupervisionModel.ORGANIZATION" />
+          <EntitySet Name="SPECIAL_PERMITS" EntityType="SupervisionModel.SPECIAL_PERMITS" />
+          <EntitySet Name="USERS" EntityType="SupervisionModel.USER" />
+          <AssociationSet Name="ORG_CARGO_FK" Association="SupervisionModel.ORG_CARGO_FK">
+            <End Role="CARGO_TYPES" EntitySet="CARGO_TYPES" />
+            <End Role="SPECIAL_PERMITS" EntitySet="SPECIAL_PERMITS" />
+          </AssociationSet>
+          <AssociationSet Name="SP_ORG_FK" Association="SupervisionModel.SP_ORG_FK">
+            <End Role="ORGANIZATIONS" EntitySet="ORGANIZATIONS" />
+            <End Role="SPECIAL_PERMITS" EntitySet="SPECIAL_PERMITS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CARGO_TYPES">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="Int32" Nullable="false" />
+          <Property Name="TITLE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="SPECIAL_PERMITS" Relationship="SupervisionModel.ORG_CARGO_FK" FromRole="CARGO_TYPES" ToRole="SPECIAL_PERMITS" />
+        </EntityType>
+        <EntityType Name="LOGGER_UGADN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MESSAGE" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ORGANIZATION">
+          <Key>
+            <PropertyRef Name="ORGANIZATION_ID" />
+          </Key>
+          <Property Name="ORGANIZATION_ID" Type="Int32" Nullable="false" />
+          <Property Name="TITLE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="SPECIAL_PERMITS" Relationship="SupervisionModel.SP_ORG_FK" FromRole="ORGANIZATIONS" ToRole="SPECIAL_PERMITS" />
+        </EntityType>
+        <EntityType Name="SPECIAL_PERMITS">
+          <Key>
+            <PropertyRef Name="SP_ID" />
+          </Key>
+          <Property Name="SP_ID" Type="Int32" Nullable="false" />
+          <Property Name="ORGANIZATION_ID" Type="Int32" Nullable="false" />
+          <Property Name="ROUTE_DESCRIPTION" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="START_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="FINISH_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="CARGO_TYPE" Type="Int32" Nullable="false" />
+          <Property Name="STATUS" Type="Int16" />
+          <Property Name="TRIPS_COUNT" Type="Int32" />
+          <NavigationProperty Name="CARGO_TYPES" Relationship="SupervisionModel.ORG_CARGO_FK" FromRole="SPECIAL_PERMITS" ToRole="CARGO_TYPES" />
+          <NavigationProperty Name="ORGANIZATION" Relationship="SupervisionModel.SP_ORG_FK" FromRole="SPECIAL_PERMITS" ToRole="ORGANIZATIONS" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+          </Key>
+          <Property Name="USERNAME" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NAME" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <Association Name="ORG_CARGO_FK">
+          <End Role="CARGO_TYPES" Type="SupervisionModel.CARGO_TYPES" Multiplicity="1" />
+          <End Role="SPECIAL_PERMITS" Type="SupervisionModel.SPECIAL_PERMITS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARGO_TYPES">
+              <PropertyRef Name="CODE" />
+            </Principal>
+            <Dependent Role="SPECIAL_PERMITS">
+              <PropertyRef Name="CARGO_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SP_ORG_FK">
+          <End Role="ORGANIZATIONS" Type="SupervisionModel.ORGANIZATION" Multiplicity="1" />
+          <End Role="SPECIAL_PERMITS" Type="SupervisionModel.SPECIAL_PERMITS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZATIONS">
+              <PropertyRef Name="ORGANIZATION_ID" />
+            </Principal>
+            <Dependent Role="SPECIAL_PERMITS">
+              <PropertyRef Name="ORGANIZATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SupervisionModelStoreContainer" CdmEntityContainer="SupervisionEntities">
+          <EntitySetMapping Name="CARGO_TYPES"><EntityTypeMapping TypeName="SupervisionModel.CARGO_TYPES"><MappingFragment StoreEntitySet="CARGO_TYPES">
+            <ScalarProperty Name="CODE" ColumnName="CODE" />
+            <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LOGGER_UGADN"><EntityTypeMapping TypeName="SupervisionModel.LOGGER_UGADN"><MappingFragment StoreEntitySet="LOGGER_UGADN">
+            <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+            <ScalarProperty Name="ID" ColumnName="ID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ORGANIZATIONS"><EntityTypeMapping TypeName="SupervisionModel.ORGANIZATION"><MappingFragment StoreEntitySet="ORGANIZATIONS">
+            <ScalarProperty Name="ORGANIZATION_ID" ColumnName="ORGANIZATION_ID" />
+            <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SPECIAL_PERMITS"><EntityTypeMapping TypeName="SupervisionModel.SPECIAL_PERMITS"><MappingFragment StoreEntitySet="SPECIAL_PERMITS">
+            <ScalarProperty Name="SP_ID" ColumnName="SP_ID" />
+            <ScalarProperty Name="ORGANIZATION_ID" ColumnName="ORGANIZATION_ID" />
+            <ScalarProperty Name="ROUTE_DESCRIPTION" ColumnName="ROUTE_DESCRIPTION" />
+            <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
+            <ScalarProperty Name="FINISH_DATE" ColumnName="FINISH_DATE" />
+            <ScalarProperty Name="CARGO_TYPE" ColumnName="CARGO_TYPE" />
+            <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+            <ScalarProperty Name="TRIPS_COUNT" ColumnName="TRIPS_COUNT" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="USERS"><EntityTypeMapping TypeName="SupervisionModel.USER"><MappingFragment StoreEntitySet="USERS">
+            <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+            <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+            <ScalarProperty Name="NAME" ColumnName="NAME" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Supervision">
+        <EntityTypeShape EntityType="SupervisionModel.CARGO_TYPES" Width="1.5" PointX="0.75" PointY="1.625" Height="1.5956835937499998" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupervisionModel.LOGGER_UGADN" Width="1.5" PointX="2.75" PointY="4.75" Height="1.4033821614583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupervisionModel.ORGANIZATION" Width="1.5" PointX="0.75" PointY="5.625" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupervisionModel.SPECIAL_PERMITS" Width="1.5" PointX="3" PointY="1" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupervisionModel.USER" Width="1.5" PointX="4.75" PointY="4.75" Height="1.5956835937499996" IsExpanded="true" />
+        <AssociationConnector Association="SupervisionModel.ORG_CARGO_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.422841796875" />
+          <ConnectorPoint PointX="3" PointY="2.422841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="SupervisionModel.SP_ORG_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="6.7182828776041665" />
+          <ConnectorPoint PointX="4.40625" PointY="6.7182828776041665" />
+          <ConnectorPoint PointX="4.40625" PointY="3.9417936197916656" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

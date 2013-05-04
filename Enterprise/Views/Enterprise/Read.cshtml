@@ -1,0 +1,34 @@
+﻿@{
+    var X = Html.X();    
+}
+
+@(X.ResourceManager())
+
+@(X.Window()
+        .Title("Adding tab")
+        .Width(700)
+        .Height(500)
+        .Icon(Icon.Link)
+        .Layout(LayoutType.Border)
+        .Items(
+            X.MenuPanel()
+                .ID("MenuPanel1")
+                .Width(200)
+                .Region(Region.North)
+                .Menu(m => { 
+                    m.Add(X.MenuItem()
+                            .Text("Ext.NET")
+                            .OnClientClick("addTab(#{TabPanel1}, 'idClt', 'http://www.ext.net', this);"));
+                    m.Add(X.MenuItem()
+                        .Text("Ext.NET forums")
+                        .OnClientClick("addTab(#{TabPanel1}, 'idGgl', 'http://forums.ext.net', this);"));
+                    m.Add(X.MenuItem()
+                        .Text("Sencha")
+                        .OnClientClick("addTab(#{TabPanel1}, 'idExt', 'http://www.sencha.com', this);"));
+                }),
+                
+            X.TabPanel()
+                .ID("TabPanel1")
+                .Region(Region.Center)
+        )
+    )

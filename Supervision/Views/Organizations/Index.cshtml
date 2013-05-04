@@ -1,0 +1,36 @@
+﻿@model System.Collections.Generic.List<Supervision.Models.ORGANIZATION>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Organizations</title>
+</head>
+<body>
+    <div>
+        @(Html.X().ResourceManager())
+        
+        @(
+            Html.X().GridPanel()
+              .Title("Array Grid")
+              .Width(600)
+              .Height(350)
+              .Store(Html.X().Store()
+                  .Model(Html.X().Model()
+                      .Fields(
+                          new ModelField("ORGANIZATION_ID"),
+                          new ModelField("TITLE")
+                      )
+                  )
+                  .DataSource(Model)
+              )
+              .ColumnModel(
+                  Html.X().Column().Text("ORGANIZATION_ID").DataIndex("ORGANIZATION_ID"),
+                  Html.X().Column().Text("TITLE").DataIndex("TITLE")
+              )
+       )
+    </div>
+</body>
+</html>
