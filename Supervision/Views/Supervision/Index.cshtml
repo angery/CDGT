@@ -1,0 +1,11 @@
+﻿@{    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section main{
+   @(Html.X().Panel()
+        .Title("Управление государственного автодорожного надзора - перевозки опасных грузов")
+        .Border(false)        
+        .ContentFromAction("Home")
+    )
+}

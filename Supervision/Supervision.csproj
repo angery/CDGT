@@ -120,12 +120,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ExtNetConfig.cs" />
-    <Compile Include="Controllers\ExtNetController.cs" />
     <Compile Include="Controllers\OrganizationsController.cs" />
+    <Compile Include="Controllers\SupervisionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ExtNetModel.cs" />
     <Compile Include="Models\Supervision.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -162,9 +161,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ExtNet\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_Readme\Ext.NET.MVC\Sample.Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -174,7 +170,13 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Organizations\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Supervision\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Supervision\Home.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

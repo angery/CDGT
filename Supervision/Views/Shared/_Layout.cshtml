@@ -1,0 +1,67 @@
+﻿@*Данная страница страницей не яввляется, а является шаблоном для всех остальных страниц в пределах Надзора.
+Необходимо описать:
+    - header
+    - левое меню
+    - центральную панель
+*@ @*Ext.NET Razor ResourceManager definition 
+    - лучше объявить в шаблоне, чтобы не таскать по мелким страницам!!
+    - поиграться с темами (?)
+*@
+@(Html.X().ResourceManager())
+@(
+ Html.X().Viewport()
+            .Layout(LayoutType.Border)
+            .Items(
+                Html.X().Panel()
+                    .Region(Region.West)
+                    .Title("УГАДН: ОГ-Надзор ")
+                    .Icon(Ext.Net.Icon.Car)
+                    .Width(200)
+                    .Collapsible(true)
+                    .Split(true)
+                    .MinWidth(175)
+                    .MaxWidth(400)
+                    .MarginSpec("5 0 5 5")
+                    .Layout(LayoutType.Accordion)
+                    .Items(panelitems =>
+                    {
+                        panelitems.Add(
+                            Html.X().MenuPanel()
+                            .Title("Меню")
+                            .Menu(menu =>
+                            {
+                                menu.Items.Add(
+                                    Html.X().MenuItem()
+                                    .Text("Главная")
+                                    .Icon(Ext.Net.Icon.House)
+                                    .OnClientClick("alert('Переход на главную');")
+                                );
+                                menu.Items.Add(
+                                    Html.X().MenuItem()
+                                    .Text("Спец.разрешения")
+                                    .Icon(Ext.Net.Icon.PageWhiteText)
+                                    .OnClientClick("alert('СР');")
+                                );
+                                menu.Items.Add(
+                                    Html.X().MenuItem()
+                                    .Text("Организации")
+                                    .Icon(Ext.Net.Icon.Vcard)
+                                    .OnClientClick("alert('Организации');")
+                                );
+                                menu.Items.Add(
+                                    Html.X().MenuItem()
+                                    .Text("Отчеты")
+                                    .Icon(Ext.Net.Icon.Table)
+                                    .OnClientClick("alert('Отчеты');")
+                                );
+                            })
+                            );
+                    })
+                 ,
+
+               Html.X().Panel()
+                    .Region(Region.Center)
+                    .MarginSpec("5 5 5 0")
+                    .ItemsFromSection(this, "main")
+            )
+        )

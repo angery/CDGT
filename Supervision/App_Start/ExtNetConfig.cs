@@ -13,15 +13,15 @@ namespace Supervision
         }
  
         public static void RegisterRoutes(RouteCollection routes)
-        {
+        {            
             // Ignore all ext.axd embedded resource paths
             routes.IgnoreRoute("{extnet-root}/{extnet-file}/ext.axd");
 
             // Add http://example.com/extnet/ Route
             routes.MapRoute(
-                "ExtNet", // Route name
+                "Supervision", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "ExtNet", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Supervision", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
         }
 

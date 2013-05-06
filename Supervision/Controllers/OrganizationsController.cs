@@ -16,6 +16,11 @@ namespace Supervision.Controllers
             return View(new Supervision.Models.SupervisionEntities().ORGANIZATIONS.ToList());
         }
 
+        public ActionResult Sample()
+        {
+            return View();
+        }
+
         //
         // GET: /Organizations/Details/5
 
@@ -41,7 +46,7 @@ namespace Supervision.Controllers
             try
             {
                 // TODO: Add insert logic here
-
+                int a = 5;
                 return RedirectToAction("Index");
             }
             catch
@@ -67,7 +72,7 @@ namespace Supervision.Controllers
             try
             {
                 // TODO: Add update logic here
-
+                int a = 5;
                 return RedirectToAction("Index");
             }
             catch

@@ -16,9 +16,6 @@ D:\Документы\Универ\8 семестр\Программирован
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\System.Web.WebPages.dll
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\System.Web.WebPages.Razor.dll
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\WebActivatorEx.dll
-D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\Ext.Net.dll
-D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\Transformer.NET.dll
-D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\Ext.Net.Utilities.dll
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\Supervision.pdb
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\Newtonsoft.Json.xml
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\System.Net.Http.xml
@@ -32,9 +29,6 @@ D:\Документы\Универ\8 семестр\Программирован
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\System.Web.WebPages.xml
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\Ext.Net.xml
-D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\Transformer.NET.xml
-D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\bin\Debug\Ext.Net.Utilities.xml
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\obj\Debug\ResolveAssemblyReference.cache
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\obj\Debug\Supervision.Tests.dll
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Supervision.Tests\obj\Debug\Supervision.Tests.pdb
