@@ -1,110 +1,120 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Supervision.Models;
+using Ext.Net.MVC;
 
 namespace Supervision.Controllers
 {
     public class OrganizationsController : Controller
     {
+        private SupervisionEntities db = new SupervisionEntities();
+
         //
         // GET: /Organizations/
 
         public ActionResult Index()
         {
-            return View(new Supervision.Models.SupervisionEntities().ORGANIZATIONS.ToList());
-        }
-
-        public ActionResult Sample()
-        {
             return View();
         }
 
-        //
-        // GET: /Organizations/Details/5
-
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        //
-        // GET: /Organizations/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Organizations/Create
-
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [AcceptVerbs(HttpVerbs.Post)]
+        public RestResult Create(Organization org)
         {
             try
             {
-                // TODO: Add insert logic here
-                int a = 5;
-                return RedirectToAction("Index");
+                db.ORGANIZATIONS.AddObject(org);
+
+                return new RestResult
+                {
+                    Success = true,
+                    Message = "Сведения об организации успешно занесены в реестр",
+                    Data = org
+                };
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                return new RestResult
+                {
+                    Success = false,
+                    Message = e.Message
+                };
             }
         }
 
-        //
-        // GET: /Organizations/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Organizations/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [AcceptVerbs(HttpVerbs.Get)]
+        public RestResult Read()
         {
             try
             {
-                // TODO: Add update logic here
-                int a = 5;
-                return RedirectToAction("Index");
+                return new RestResult
+                {
+                    Success = true,
+                    Data = db.ORGANIZATIONS.ToList()
+                };
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                return new RestResult
+                {
+                    Success = false,
+                    Message = e.Message
+                };
             }
         }
 
-        //
-        // GET: /Organizations/Delete/5
-
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Organizations/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [AcceptVerbs(HttpVerbs.Put)]
+        public RestResult Update(Organization org)
         {
             try
             {
-                // TODO: Add delete logic here
+                db.ORGANIZATIONS.Attach(org);
+                db.ObjectStateManager.ChangeObjectState(org, EntityState.Modified);
+                db.SaveChanges();
 
-                return RedirectToAction("Index");
+                return new RestResult
+                {
+                    Success = true,
+                    Message = "Сведения об организации успешно обновлены"
+                };
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                return new RestResult
+                {
+                    Success = false,
+                    Message = e.Message
+                };
             }
         }
+
+        [AcceptVerbs(HttpVerbs.Delete)]
+        public RestResult Destroy(int id)
+        {
+            try
+            {
+                Organization organization = db.ORGANIZATIONS.Single(o => o.ORGANIZATION_ID == id);
+                db.ORGANIZATIONS.DeleteObject(organization);
+
+                return new RestResult
+                {
+                    Success = true,
+                    Message = "Сведения об организации успешно удалены"
+                };
+            }
+            catch (Exception e)
+            {
+                return new RestResult
+                {
+                    Success = false,
+                    Message = e.Message
+                };
+            }
+        }
+
     }
 }

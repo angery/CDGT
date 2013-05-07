@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SupervisionModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="SupervisionEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="CARGO_TYPES" EntityType="SupervisionModel.CARGO_TYPES" />
-    <EntitySet Name="LOGGER_UGADN" EntityType="SupervisionModel.LOGGER_UGADN" />
-    <EntitySet Name="ORGANIZATIONS" EntityType="SupervisionModel.ORGANIZATION" />
-    <EntitySet Name="SPECIAL_PERMITS" EntityType="SupervisionModel.SPECIAL_PERMITS" />
-    <EntitySet Name="USERS" EntityType="SupervisionModel.USER" />
+    <EntitySet Name="CARGO_TYPES" EntityType="SupervisionModel.CargoType" />
+    <EntitySet Name="LOGGER_UGADN" EntityType="SupervisionModel.LogItem" />
+    <EntitySet Name="ORGANIZATIONS" EntityType="SupervisionModel.Organization" />
+    <EntitySet Name="SPECIAL_PERMITS" EntityType="SupervisionModel.SpecialPermit" />
+    <EntitySet Name="USERS" EntityType="SupervisionModel.User" />
     <AssociationSet Name="ORG_CARGO_FK" Association="SupervisionModel.ORG_CARGO_FK">
       <End Role="CARGO_TYPES" EntitySet="CARGO_TYPES" />
       <End Role="SPECIAL_PERMITS" EntitySet="SPECIAL_PERMITS" />
@@ -15,7 +15,7 @@
       <End Role="SPECIAL_PERMITS" EntitySet="SPECIAL_PERMITS" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="CARGO_TYPES">
+  <EntityType Name="CargoType">
     <Key>
       <PropertyRef Name="CODE" />
     </Key>
@@ -23,14 +23,14 @@
     <Property Name="TITLE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="SPECIAL_PERMITS" Relationship="SupervisionModel.ORG_CARGO_FK" FromRole="CARGO_TYPES" ToRole="SPECIAL_PERMITS" />
   </EntityType>
-  <EntityType Name="LOGGER_UGADN">
+  <EntityType Name="LogItem">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="MESSAGE" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
     <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
   </EntityType>
-  <EntityType Name="ORGANIZATION">
+  <EntityType Name="Organization">
     <Key>
       <PropertyRef Name="ORGANIZATION_ID" />
     </Key>
@@ -38,7 +38,7 @@
     <Property Name="TITLE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="SPECIAL_PERMITS" Relationship="SupervisionModel.SP_ORG_FK" FromRole="ORGANIZATIONS" ToRole="SPECIAL_PERMITS" />
   </EntityType>
-  <EntityType Name="SPECIAL_PERMITS">
+  <EntityType Name="SpecialPermit">
     <Key>
       <PropertyRef Name="SP_ID" />
     </Key>
@@ -53,7 +53,7 @@
     <NavigationProperty Name="CARGO_TYPES" Relationship="SupervisionModel.ORG_CARGO_FK" FromRole="SPECIAL_PERMITS" ToRole="CARGO_TYPES" />
     <NavigationProperty Name="ORGANIZATION" Relationship="SupervisionModel.SP_ORG_FK" FromRole="SPECIAL_PERMITS" ToRole="ORGANIZATIONS" />
   </EntityType>
-  <EntityType Name="USER">
+  <EntityType Name="User">
     <Key>
       <PropertyRef Name="USERNAME" />
     </Key>
@@ -62,8 +62,8 @@
     <Property Name="NAME" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
   </EntityType>
   <Association Name="ORG_CARGO_FK">
-    <End Role="CARGO_TYPES" Type="SupervisionModel.CARGO_TYPES" Multiplicity="1" />
-    <End Role="SPECIAL_PERMITS" Type="SupervisionModel.SPECIAL_PERMITS" Multiplicity="*" />
+    <End Role="CARGO_TYPES" Type="SupervisionModel.CargoType" Multiplicity="1" />
+    <End Role="SPECIAL_PERMITS" Type="SupervisionModel.SpecialPermit" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CARGO_TYPES">
         <PropertyRef Name="CODE" />
@@ -74,8 +74,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="SP_ORG_FK">
-    <End Role="ORGANIZATIONS" Type="SupervisionModel.ORGANIZATION" Multiplicity="1" />
-    <End Role="SPECIAL_PERMITS" Type="SupervisionModel.SPECIAL_PERMITS" Multiplicity="*" />
+    <End Role="ORGANIZATIONS" Type="SupervisionModel.Organization" Multiplicity="1" />
+    <End Role="SPECIAL_PERMITS" Type="SupervisionModel.SpecialPermit" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ORGANIZATIONS">
         <PropertyRef Name="ORGANIZATION_ID" />

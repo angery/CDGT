@@ -2,7 +2,7 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="SupervisionModelStoreContainer" CdmEntityContainer="SupervisionEntities">
     <EntitySetMapping Name="CARGO_TYPES">
-      <EntityTypeMapping TypeName="SupervisionModel.CARGO_TYPES">
+      <EntityTypeMapping TypeName="SupervisionModel.CargoType">
         <MappingFragment StoreEntitySet="CARGO_TYPES">
           <ScalarProperty Name="CODE" ColumnName="CODE" />
           <ScalarProperty Name="TITLE" ColumnName="TITLE" />
@@ -10,7 +10,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LOGGER_UGADN">
-      <EntityTypeMapping TypeName="SupervisionModel.LOGGER_UGADN">
+      <EntityTypeMapping TypeName="SupervisionModel.LogItem">
         <MappingFragment StoreEntitySet="LOGGER_UGADN">
           <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -18,7 +18,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ORGANIZATIONS">
-      <EntityTypeMapping TypeName="SupervisionModel.ORGANIZATION">
+      <EntityTypeMapping TypeName="SupervisionModel.Organization">
         <MappingFragment StoreEntitySet="ORGANIZATIONS">
           <ScalarProperty Name="ORGANIZATION_ID" ColumnName="ORGANIZATION_ID" />
           <ScalarProperty Name="TITLE" ColumnName="TITLE" />
@@ -26,7 +26,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SPECIAL_PERMITS">
-      <EntityTypeMapping TypeName="SupervisionModel.SPECIAL_PERMITS">
+      <EntityTypeMapping TypeName="SupervisionModel.SpecialPermit">
         <MappingFragment StoreEntitySet="SPECIAL_PERMITS">
           <ScalarProperty Name="SP_ID" ColumnName="SP_ID" />
           <ScalarProperty Name="ORGANIZATION_ID" ColumnName="ORGANIZATION_ID" />
@@ -40,7 +40,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="USERS">
-      <EntityTypeMapping TypeName="SupervisionModel.USER">
+      <EntityTypeMapping TypeName="SupervisionModel.User">
         <MappingFragment StoreEntitySet="USERS">
           <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
           <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />

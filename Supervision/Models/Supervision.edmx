@@ -92,11 +92,11 @@
     <edmx:ConceptualModels>
       <Schema Namespace="SupervisionModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="SupervisionEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CARGO_TYPES" EntityType="SupervisionModel.CARGO_TYPES" />
-          <EntitySet Name="LOGGER_UGADN" EntityType="SupervisionModel.LOGGER_UGADN" />
-          <EntitySet Name="ORGANIZATIONS" EntityType="SupervisionModel.ORGANIZATION" />
-          <EntitySet Name="SPECIAL_PERMITS" EntityType="SupervisionModel.SPECIAL_PERMITS" />
-          <EntitySet Name="USERS" EntityType="SupervisionModel.USER" />
+          <EntitySet Name="CARGO_TYPES" EntityType="SupervisionModel.CargoType" />
+          <EntitySet Name="LOGGER_UGADN" EntityType="SupervisionModel.LogItem" />
+          <EntitySet Name="ORGANIZATIONS" EntityType="SupervisionModel.Organization" />
+          <EntitySet Name="SPECIAL_PERMITS" EntityType="SupervisionModel.SpecialPermit" />
+          <EntitySet Name="USERS" EntityType="SupervisionModel.User" />
           <AssociationSet Name="ORG_CARGO_FK" Association="SupervisionModel.ORG_CARGO_FK">
             <End Role="CARGO_TYPES" EntitySet="CARGO_TYPES" />
             <End Role="SPECIAL_PERMITS" EntitySet="SPECIAL_PERMITS" />
@@ -106,7 +106,7 @@
             <End Role="SPECIAL_PERMITS" EntitySet="SPECIAL_PERMITS" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="CARGO_TYPES">
+        <EntityType Name="CargoType">
           <Key>
             <PropertyRef Name="CODE" />
           </Key>
@@ -114,14 +114,14 @@
           <Property Name="TITLE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="SPECIAL_PERMITS" Relationship="SupervisionModel.ORG_CARGO_FK" FromRole="CARGO_TYPES" ToRole="SPECIAL_PERMITS" />
         </EntityType>
-        <EntityType Name="LOGGER_UGADN">
+        <EntityType Name="LogItem">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="MESSAGE" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
         </EntityType>
-        <EntityType Name="ORGANIZATION">
+        <EntityType Name="Organization">
           <Key>
             <PropertyRef Name="ORGANIZATION_ID" />
           </Key>
@@ -129,7 +129,7 @@
           <Property Name="TITLE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="SPECIAL_PERMITS" Relationship="SupervisionModel.SP_ORG_FK" FromRole="ORGANIZATIONS" ToRole="SPECIAL_PERMITS" />
         </EntityType>
-        <EntityType Name="SPECIAL_PERMITS">
+        <EntityType Name="SpecialPermit">
           <Key>
             <PropertyRef Name="SP_ID" />
           </Key>
@@ -144,7 +144,7 @@
           <NavigationProperty Name="CARGO_TYPES" Relationship="SupervisionModel.ORG_CARGO_FK" FromRole="SPECIAL_PERMITS" ToRole="CARGO_TYPES" />
           <NavigationProperty Name="ORGANIZATION" Relationship="SupervisionModel.SP_ORG_FK" FromRole="SPECIAL_PERMITS" ToRole="ORGANIZATIONS" />
         </EntityType>
-        <EntityType Name="USER">
+        <EntityType Name="User">
           <Key>
             <PropertyRef Name="USERNAME" />
           </Key>
@@ -153,8 +153,8 @@
           <Property Name="NAME" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
         </EntityType>
         <Association Name="ORG_CARGO_FK">
-          <End Role="CARGO_TYPES" Type="SupervisionModel.CARGO_TYPES" Multiplicity="1" />
-          <End Role="SPECIAL_PERMITS" Type="SupervisionModel.SPECIAL_PERMITS" Multiplicity="*" />
+          <End Role="CARGO_TYPES" Type="SupervisionModel.CargoType" Multiplicity="1" />
+          <End Role="SPECIAL_PERMITS" Type="SupervisionModel.SpecialPermit" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CARGO_TYPES">
               <PropertyRef Name="CODE" />
@@ -165,8 +165,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="SP_ORG_FK">
-          <End Role="ORGANIZATIONS" Type="SupervisionModel.ORGANIZATION" Multiplicity="1" />
-          <End Role="SPECIAL_PERMITS" Type="SupervisionModel.SPECIAL_PERMITS" Multiplicity="*" />
+          <End Role="ORGANIZATIONS" Type="SupervisionModel.Organization" Multiplicity="1" />
+          <End Role="SPECIAL_PERMITS" Type="SupervisionModel.SpecialPermit" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ORGANIZATIONS">
               <PropertyRef Name="ORGANIZATION_ID" />
@@ -182,19 +182,19 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SupervisionModelStoreContainer" CdmEntityContainer="SupervisionEntities">
-          <EntitySetMapping Name="CARGO_TYPES"><EntityTypeMapping TypeName="SupervisionModel.CARGO_TYPES"><MappingFragment StoreEntitySet="CARGO_TYPES">
+          <EntitySetMapping Name="CARGO_TYPES"><EntityTypeMapping TypeName="SupervisionModel.CargoType"><MappingFragment StoreEntitySet="CARGO_TYPES">
             <ScalarProperty Name="CODE" ColumnName="CODE" />
             <ScalarProperty Name="TITLE" ColumnName="TITLE" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="LOGGER_UGADN"><EntityTypeMapping TypeName="SupervisionModel.LOGGER_UGADN"><MappingFragment StoreEntitySet="LOGGER_UGADN">
+          <EntitySetMapping Name="LOGGER_UGADN"><EntityTypeMapping TypeName="SupervisionModel.LogItem"><MappingFragment StoreEntitySet="LOGGER_UGADN">
             <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
             <ScalarProperty Name="ID" ColumnName="ID" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="ORGANIZATIONS"><EntityTypeMapping TypeName="SupervisionModel.ORGANIZATION"><MappingFragment StoreEntitySet="ORGANIZATIONS">
+          <EntitySetMapping Name="ORGANIZATIONS"><EntityTypeMapping TypeName="SupervisionModel.Organization"><MappingFragment StoreEntitySet="ORGANIZATIONS">
             <ScalarProperty Name="ORGANIZATION_ID" ColumnName="ORGANIZATION_ID" />
             <ScalarProperty Name="TITLE" ColumnName="TITLE" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="SPECIAL_PERMITS"><EntityTypeMapping TypeName="SupervisionModel.SPECIAL_PERMITS"><MappingFragment StoreEntitySet="SPECIAL_PERMITS">
+          <EntitySetMapping Name="SPECIAL_PERMITS"><EntityTypeMapping TypeName="SupervisionModel.SpecialPermit"><MappingFragment StoreEntitySet="SPECIAL_PERMITS">
             <ScalarProperty Name="SP_ID" ColumnName="SP_ID" />
             <ScalarProperty Name="ORGANIZATION_ID" ColumnName="ORGANIZATION_ID" />
             <ScalarProperty Name="ROUTE_DESCRIPTION" ColumnName="ROUTE_DESCRIPTION" />
@@ -204,7 +204,7 @@
             <ScalarProperty Name="STATUS" ColumnName="STATUS" />
             <ScalarProperty Name="TRIPS_COUNT" ColumnName="TRIPS_COUNT" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="USERS"><EntityTypeMapping TypeName="SupervisionModel.USER"><MappingFragment StoreEntitySet="USERS">
+          <EntitySetMapping Name="USERS"><EntityTypeMapping TypeName="SupervisionModel.User"><MappingFragment StoreEntitySet="USERS">
             <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
             <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
             <ScalarProperty Name="NAME" ColumnName="NAME" />
@@ -230,19 +230,19 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Supervision">
-        <EntityTypeShape EntityType="SupervisionModel.CARGO_TYPES" Width="1.5" PointX="0.75" PointY="1.625" Height="1.5956835937499998" IsExpanded="true" />
-        <EntityTypeShape EntityType="SupervisionModel.LOGGER_UGADN" Width="1.5" PointX="2.75" PointY="4.75" Height="1.4033821614583335" IsExpanded="true" />
-        <EntityTypeShape EntityType="SupervisionModel.ORGANIZATION" Width="1.5" PointX="0.75" PointY="5.625" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SupervisionModel.SPECIAL_PERMITS" Width="1.5" PointX="3" PointY="1" Height="2.9417936197916656" IsExpanded="true" />
-        <EntityTypeShape EntityType="SupervisionModel.USER" Width="1.5" PointX="4.75" PointY="4.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupervisionModel.CargoType" Width="1.5" PointX="0.75" PointY="1.625" Height="1.5956835937499998" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupervisionModel.LogItem" Width="1.75" PointX="0.625" PointY="3.875" Height="1.4033821614583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupervisionModel.Organization" Width="1.5" PointX="0.75" PointY="5.625" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupervisionModel.SpecialPermit" Width="1.5" PointX="3" PointY="1" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupervisionModel.User" Width="1.5" PointX="4.75" PointY="4.75" Height="1.5956835937499996" IsExpanded="true" />
         <AssociationConnector Association="SupervisionModel.ORG_CARGO_FK" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="2.422841796875" />
           <ConnectorPoint PointX="3" PointY="2.422841796875" />
         </AssociationConnector>
         <AssociationConnector Association="SupervisionModel.SP_ORG_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="6.7182828776041665" />
-          <ConnectorPoint PointX="4.40625" PointY="6.7182828776041665" />
-          <ConnectorPoint PointX="4.40625" PointY="3.9417936197916656" />
+          <ConnectorPoint PointX="2.25" PointY="6.422841796875" />
+          <ConnectorPoint PointX="3.75" PointY="6.422841796875" />
+          <ConnectorPoint PointX="3.75" PointY="3.9417936197916656" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

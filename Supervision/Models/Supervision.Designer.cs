@@ -18,8 +18,8 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region Метаданные связи EDM
 
-[assembly: EdmRelationshipAttribute("SupervisionModel", "ORG_CARGO_FK", "CARGO_TYPES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Supervision.Models.CARGO_TYPES), "SPECIAL_PERMITS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Supervision.Models.SPECIAL_PERMITS), true)]
-[assembly: EdmRelationshipAttribute("SupervisionModel", "SP_ORG_FK", "ORGANIZATIONS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Supervision.Models.ORGANIZATION), "SPECIAL_PERMITS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Supervision.Models.SPECIAL_PERMITS), true)]
+[assembly: EdmRelationshipAttribute("SupervisionModel", "ORG_CARGO_FK", "CARGO_TYPES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Supervision.Models.CargoType), "SPECIAL_PERMITS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Supervision.Models.SpecialPermit), true)]
+[assembly: EdmRelationshipAttribute("SupervisionModel", "SP_ORG_FK", "ORGANIZATIONS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Supervision.Models.Organization), "SPECIAL_PERMITS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Supervision.Models.SpecialPermit), true)]
 
 #endregion
 
@@ -74,82 +74,82 @@ namespace Supervision.Models
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<CARGO_TYPES> CARGO_TYPES
+        public ObjectSet<CargoType> CARGO_TYPES
         {
             get
             {
                 if ((_CARGO_TYPES == null))
                 {
-                    _CARGO_TYPES = base.CreateObjectSet<CARGO_TYPES>("CARGO_TYPES");
+                    _CARGO_TYPES = base.CreateObjectSet<CargoType>("CARGO_TYPES");
                 }
                 return _CARGO_TYPES;
             }
         }
-        private ObjectSet<CARGO_TYPES> _CARGO_TYPES;
+        private ObjectSet<CargoType> _CARGO_TYPES;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<LOGGER_UGADN> LOGGER_UGADN
+        public ObjectSet<LogItem> LOGGER_UGADN
         {
             get
             {
                 if ((_LOGGER_UGADN == null))
                 {
-                    _LOGGER_UGADN = base.CreateObjectSet<LOGGER_UGADN>("LOGGER_UGADN");
+                    _LOGGER_UGADN = base.CreateObjectSet<LogItem>("LOGGER_UGADN");
                 }
                 return _LOGGER_UGADN;
             }
         }
-        private ObjectSet<LOGGER_UGADN> _LOGGER_UGADN;
+        private ObjectSet<LogItem> _LOGGER_UGADN;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<ORGANIZATION> ORGANIZATIONS
+        public ObjectSet<Organization> ORGANIZATIONS
         {
             get
             {
                 if ((_ORGANIZATIONS == null))
                 {
-                    _ORGANIZATIONS = base.CreateObjectSet<ORGANIZATION>("ORGANIZATIONS");
+                    _ORGANIZATIONS = base.CreateObjectSet<Organization>("ORGANIZATIONS");
                 }
                 return _ORGANIZATIONS;
             }
         }
-        private ObjectSet<ORGANIZATION> _ORGANIZATIONS;
+        private ObjectSet<Organization> _ORGANIZATIONS;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<SPECIAL_PERMITS> SPECIAL_PERMITS
+        public ObjectSet<SpecialPermit> SPECIAL_PERMITS
         {
             get
             {
                 if ((_SPECIAL_PERMITS == null))
                 {
-                    _SPECIAL_PERMITS = base.CreateObjectSet<SPECIAL_PERMITS>("SPECIAL_PERMITS");
+                    _SPECIAL_PERMITS = base.CreateObjectSet<SpecialPermit>("SPECIAL_PERMITS");
                 }
                 return _SPECIAL_PERMITS;
             }
         }
-        private ObjectSet<SPECIAL_PERMITS> _SPECIAL_PERMITS;
+        private ObjectSet<SpecialPermit> _SPECIAL_PERMITS;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<USER> USERS
+        public ObjectSet<User> USERS
         {
             get
             {
                 if ((_USERS == null))
                 {
-                    _USERS = base.CreateObjectSet<USER>("USERS");
+                    _USERS = base.CreateObjectSet<User>("USERS");
                 }
                 return _USERS;
             }
         }
-        private ObjectSet<USER> _USERS;
+        private ObjectSet<User> _USERS;
 
         #endregion
         #region Методы AddTo
@@ -157,41 +157,41 @@ namespace Supervision.Models
         /// <summary>
         /// Устаревший метод для добавления новых объектов в набор EntitySet CARGO_TYPES. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToCARGO_TYPES(CARGO_TYPES cARGO_TYPES)
+        public void AddToCARGO_TYPES(CargoType cargoType)
         {
-            base.AddObject("CARGO_TYPES", cARGO_TYPES);
+            base.AddObject("CARGO_TYPES", cargoType);
         }
     
         /// <summary>
         /// Устаревший метод для добавления новых объектов в набор EntitySet LOGGER_UGADN. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToLOGGER_UGADN(LOGGER_UGADN lOGGER_UGADN)
+        public void AddToLOGGER_UGADN(LogItem logItem)
         {
-            base.AddObject("LOGGER_UGADN", lOGGER_UGADN);
+            base.AddObject("LOGGER_UGADN", logItem);
         }
     
         /// <summary>
         /// Устаревший метод для добавления новых объектов в набор EntitySet ORGANIZATIONS. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToORGANIZATIONS(ORGANIZATION oRGANIZATION)
+        public void AddToORGANIZATIONS(Organization organization)
         {
-            base.AddObject("ORGANIZATIONS", oRGANIZATION);
+            base.AddObject("ORGANIZATIONS", organization);
         }
     
         /// <summary>
         /// Устаревший метод для добавления новых объектов в набор EntitySet SPECIAL_PERMITS. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToSPECIAL_PERMITS(SPECIAL_PERMITS sPECIAL_PERMITS)
+        public void AddToSPECIAL_PERMITS(SpecialPermit specialPermit)
         {
-            base.AddObject("SPECIAL_PERMITS", sPECIAL_PERMITS);
+            base.AddObject("SPECIAL_PERMITS", specialPermit);
         }
     
         /// <summary>
         /// Устаревший метод для добавления новых объектов в набор EntitySet USERS. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToUSERS(USER uSER)
+        public void AddToUSERS(User user)
         {
-            base.AddObject("USERS", uSER);
+            base.AddObject("USERS", user);
         }
 
         #endregion
@@ -205,22 +205,22 @@ namespace Supervision.Models
     /// <summary>
     /// Нет доступной документации по метаданным.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="SupervisionModel", Name="CARGO_TYPES")]
+    [EdmEntityTypeAttribute(NamespaceName="SupervisionModel", Name="CargoType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class CARGO_TYPES : EntityObject
+    public partial class CargoType : EntityObject
     {
         #region Фабричный метод
     
         /// <summary>
-        /// Создание нового объекта CARGO_TYPES.
+        /// Создание нового объекта CargoType.
         /// </summary>
         /// <param name="cODE">Исходное значение свойства CODE.</param>
-        public static CARGO_TYPES CreateCARGO_TYPES(global::System.Int32 cODE)
+        public static CargoType CreateCargoType(global::System.Int32 cODE)
         {
-            CARGO_TYPES cARGO_TYPES = new CARGO_TYPES();
-            cARGO_TYPES.CODE = cODE;
-            return cARGO_TYPES;
+            CargoType cargoType = new CargoType();
+            cargoType.CODE = cODE;
+            return cargoType;
         }
 
         #endregion
@@ -288,17 +288,17 @@ namespace Supervision.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SupervisionModel", "ORG_CARGO_FK", "SPECIAL_PERMITS")]
-        public EntityCollection<SPECIAL_PERMITS> SPECIAL_PERMITS
+        public EntityCollection<SpecialPermit> SPECIAL_PERMITS
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SPECIAL_PERMITS>("SupervisionModel.ORG_CARGO_FK", "SPECIAL_PERMITS");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SpecialPermit>("SupervisionModel.ORG_CARGO_FK", "SPECIAL_PERMITS");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SPECIAL_PERMITS>("SupervisionModel.ORG_CARGO_FK", "SPECIAL_PERMITS", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SpecialPermit>("SupervisionModel.ORG_CARGO_FK", "SPECIAL_PERMITS", value);
                 }
             }
         }
@@ -309,22 +309,22 @@ namespace Supervision.Models
     /// <summary>
     /// Нет доступной документации по метаданным.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="SupervisionModel", Name="LOGGER_UGADN")]
+    [EdmEntityTypeAttribute(NamespaceName="SupervisionModel", Name="LogItem")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class LOGGER_UGADN : EntityObject
+    public partial class LogItem : EntityObject
     {
         #region Фабричный метод
     
         /// <summary>
-        /// Создание нового объекта LOGGER_UGADN.
+        /// Создание нового объекта LogItem.
         /// </summary>
         /// <param name="id">Исходное значение свойства ID.</param>
-        public static LOGGER_UGADN CreateLOGGER_UGADN(global::System.Decimal id)
+        public static LogItem CreateLogItem(global::System.Decimal id)
         {
-            LOGGER_UGADN lOGGER_UGADN = new LOGGER_UGADN();
-            lOGGER_UGADN.ID = id;
-            return lOGGER_UGADN;
+            LogItem logItem = new LogItem();
+            logItem.ID = id;
+            return logItem;
         }
 
         #endregion
@@ -388,22 +388,22 @@ namespace Supervision.Models
     /// <summary>
     /// Нет доступной документации по метаданным.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="SupervisionModel", Name="ORGANIZATION")]
+    [EdmEntityTypeAttribute(NamespaceName="SupervisionModel", Name="Organization")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class ORGANIZATION : EntityObject
+    public partial class Organization : EntityObject
     {
         #region Фабричный метод
     
         /// <summary>
-        /// Создание нового объекта ORGANIZATION.
+        /// Создание нового объекта Organization.
         /// </summary>
         /// <param name="oRGANIZATION_ID">Исходное значение свойства ORGANIZATION_ID.</param>
-        public static ORGANIZATION CreateORGANIZATION(global::System.Int32 oRGANIZATION_ID)
+        public static Organization CreateOrganization(global::System.Int32 oRGANIZATION_ID)
         {
-            ORGANIZATION oRGANIZATION = new ORGANIZATION();
-            oRGANIZATION.ORGANIZATION_ID = oRGANIZATION_ID;
-            return oRGANIZATION;
+            Organization organization = new Organization();
+            organization.ORGANIZATION_ID = oRGANIZATION_ID;
+            return organization;
         }
 
         #endregion
@@ -471,17 +471,17 @@ namespace Supervision.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SupervisionModel", "SP_ORG_FK", "SPECIAL_PERMITS")]
-        public EntityCollection<SPECIAL_PERMITS> SPECIAL_PERMITS
+        public EntityCollection<SpecialPermit> SPECIAL_PERMITS
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SPECIAL_PERMITS>("SupervisionModel.SP_ORG_FK", "SPECIAL_PERMITS");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SpecialPermit>("SupervisionModel.SP_ORG_FK", "SPECIAL_PERMITS");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SPECIAL_PERMITS>("SupervisionModel.SP_ORG_FK", "SPECIAL_PERMITS", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SpecialPermit>("SupervisionModel.SP_ORG_FK", "SPECIAL_PERMITS", value);
                 }
             }
         }
@@ -492,15 +492,15 @@ namespace Supervision.Models
     /// <summary>
     /// Нет доступной документации по метаданным.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="SupervisionModel", Name="SPECIAL_PERMITS")]
+    [EdmEntityTypeAttribute(NamespaceName="SupervisionModel", Name="SpecialPermit")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class SPECIAL_PERMITS : EntityObject
+    public partial class SpecialPermit : EntityObject
     {
         #region Фабричный метод
     
         /// <summary>
-        /// Создание нового объекта SPECIAL_PERMITS.
+        /// Создание нового объекта SpecialPermit.
         /// </summary>
         /// <param name="sP_ID">Исходное значение свойства SP_ID.</param>
         /// <param name="oRGANIZATION_ID">Исходное значение свойства ORGANIZATION_ID.</param>
@@ -508,16 +508,16 @@ namespace Supervision.Models
         /// <param name="sTART_DATE">Исходное значение свойства START_DATE.</param>
         /// <param name="fINISH_DATE">Исходное значение свойства FINISH_DATE.</param>
         /// <param name="cARGO_TYPE">Исходное значение свойства CARGO_TYPE.</param>
-        public static SPECIAL_PERMITS CreateSPECIAL_PERMITS(global::System.Int32 sP_ID, global::System.Int32 oRGANIZATION_ID, global::System.String rOUTE_DESCRIPTION, global::System.DateTime sTART_DATE, global::System.DateTime fINISH_DATE, global::System.Int32 cARGO_TYPE)
+        public static SpecialPermit CreateSpecialPermit(global::System.Int32 sP_ID, global::System.Int32 oRGANIZATION_ID, global::System.String rOUTE_DESCRIPTION, global::System.DateTime sTART_DATE, global::System.DateTime fINISH_DATE, global::System.Int32 cARGO_TYPE)
         {
-            SPECIAL_PERMITS sPECIAL_PERMITS = new SPECIAL_PERMITS();
-            sPECIAL_PERMITS.SP_ID = sP_ID;
-            sPECIAL_PERMITS.ORGANIZATION_ID = oRGANIZATION_ID;
-            sPECIAL_PERMITS.ROUTE_DESCRIPTION = rOUTE_DESCRIPTION;
-            sPECIAL_PERMITS.START_DATE = sTART_DATE;
-            sPECIAL_PERMITS.FINISH_DATE = fINISH_DATE;
-            sPECIAL_PERMITS.CARGO_TYPE = cARGO_TYPE;
-            return sPECIAL_PERMITS;
+            SpecialPermit specialPermit = new SpecialPermit();
+            specialPermit.SP_ID = sP_ID;
+            specialPermit.ORGANIZATION_ID = oRGANIZATION_ID;
+            specialPermit.ROUTE_DESCRIPTION = rOUTE_DESCRIPTION;
+            specialPermit.START_DATE = sTART_DATE;
+            specialPermit.FINISH_DATE = fINISH_DATE;
+            specialPermit.CARGO_TYPE = cARGO_TYPE;
+            return specialPermit;
         }
 
         #endregion
@@ -729,15 +729,15 @@ namespace Supervision.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SupervisionModel", "ORG_CARGO_FK", "CARGO_TYPES")]
-        public CARGO_TYPES CARGO_TYPES
+        public CargoType CARGO_TYPES
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CARGO_TYPES>("SupervisionModel.ORG_CARGO_FK", "CARGO_TYPES").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CargoType>("SupervisionModel.ORG_CARGO_FK", "CARGO_TYPES").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CARGO_TYPES>("SupervisionModel.ORG_CARGO_FK", "CARGO_TYPES").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CargoType>("SupervisionModel.ORG_CARGO_FK", "CARGO_TYPES").Value = value;
             }
         }
         /// <summary>
@@ -745,17 +745,17 @@ namespace Supervision.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<CARGO_TYPES> CARGO_TYPESReference
+        public EntityReference<CargoType> CARGO_TYPESReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CARGO_TYPES>("SupervisionModel.ORG_CARGO_FK", "CARGO_TYPES");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CargoType>("SupervisionModel.ORG_CARGO_FK", "CARGO_TYPES");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CARGO_TYPES>("SupervisionModel.ORG_CARGO_FK", "CARGO_TYPES", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CargoType>("SupervisionModel.ORG_CARGO_FK", "CARGO_TYPES", value);
                 }
             }
         }
@@ -767,15 +767,15 @@ namespace Supervision.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SupervisionModel", "SP_ORG_FK", "ORGANIZATIONS")]
-        public ORGANIZATION ORGANIZATION
+        public Organization ORGANIZATION
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ORGANIZATION>("SupervisionModel.SP_ORG_FK", "ORGANIZATIONS").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Organization>("SupervisionModel.SP_ORG_FK", "ORGANIZATIONS").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ORGANIZATION>("SupervisionModel.SP_ORG_FK", "ORGANIZATIONS").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Organization>("SupervisionModel.SP_ORG_FK", "ORGANIZATIONS").Value = value;
             }
         }
         /// <summary>
@@ -783,17 +783,17 @@ namespace Supervision.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<ORGANIZATION> ORGANIZATIONReference
+        public EntityReference<Organization> ORGANIZATIONReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ORGANIZATION>("SupervisionModel.SP_ORG_FK", "ORGANIZATIONS");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Organization>("SupervisionModel.SP_ORG_FK", "ORGANIZATIONS");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ORGANIZATION>("SupervisionModel.SP_ORG_FK", "ORGANIZATIONS", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Organization>("SupervisionModel.SP_ORG_FK", "ORGANIZATIONS", value);
                 }
             }
         }
@@ -804,22 +804,22 @@ namespace Supervision.Models
     /// <summary>
     /// Нет доступной документации по метаданным.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="SupervisionModel", Name="USER")]
+    [EdmEntityTypeAttribute(NamespaceName="SupervisionModel", Name="User")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class USER : EntityObject
+    public partial class User : EntityObject
     {
         #region Фабричный метод
     
         /// <summary>
-        /// Создание нового объекта USER.
+        /// Создание нового объекта User.
         /// </summary>
         /// <param name="uSERNAME">Исходное значение свойства USERNAME.</param>
-        public static USER CreateUSER(global::System.String uSERNAME)
+        public static User CreateUser(global::System.String uSERNAME)
         {
-            USER uSER = new USER();
-            uSER.USERNAME = uSERNAME;
-            return uSER;
+            User user = new User();
+            user.USERNAME = uSERNAME;
+            return user;
         }
 
         #endregion
