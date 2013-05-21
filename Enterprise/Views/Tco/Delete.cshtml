@@ -1,0 +1,52 @@
+﻿@model Enterprise.Models.TCO
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Delete";
+}
+@section main {
+    <h2>
+        Удалить</h2>
+    <h3>
+        Вы действительно хотите удалить информаци об ОТК?</h3>
+    <fieldset>
+        <legend>TCO</legend>
+        <div class="display-label">
+            Гос.номер
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.STATE_NUMBER)
+        </div>
+        <div class="display-label">
+            Код АТ
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.AT_ID)
+        </div>
+        <div class="display-label">
+            Марка ТС
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.MARK)
+        </div>
+        <div class="display-label">
+            Модель ТС
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.MODEL)
+        </div>
+        <div class="display-label">
+            Грузоподъемность
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.WEIGHT)
+        </div>
+    </fieldset>
+    @using (Html.BeginForm())
+    {
+        <p>
+            <input type="submit" value="Delete" />
+            |
+            @Html.ActionLink("Вернуться к списку", "Index")
+        </p>
+    }
+}

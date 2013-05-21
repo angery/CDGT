@@ -1,0 +1,30 @@
+﻿@model Supervision.Models.Organization
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section main {
+    <h2>
+        Редактирование</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Организация</legend>
+            @Html.HiddenFor(model => model.ORGANIZATION_ID)
+            <div class="editor-label">
+                Наименование
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.TITLE)
+                @Html.ValidationMessageFor(model => model.TITLE)
+            </div>
+            <p>
+                <input type="submit" value="Сохранить" />
+            </p>
+        </fieldset>
+    }
+    <div>
+        @Html.ActionLink("Вернуться к списку", "Index")
+    </div>    
+}

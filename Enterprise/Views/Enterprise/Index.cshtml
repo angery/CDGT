@@ -1,34 +1,21 @@
-﻿@{
-    var X = Html.X();    
+﻿@{    
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@(X.ResourceManager())
+@section main{
+   <p style="margin: 5 5 5 5; padding: 5 5 5 5;">
+    <h2>
+        &nbsp&nbsp Добро пожаловать в систему контроля перевозок опасных грузов!</h2>
+    <p style="margin: 5 5 5 5; padding: 5 5 5 5;">
+        В настоящее время под вашим контролем находится 
+        (<b>@Html.ActionLink((String)ViewBag.DriversCount.ToString(), "Index", "Drivers")</b>)
+        водителей и 
+        (<b>@Html.ActionLink((String)ViewBag.TcoCount.ToString(), "Index", "Tco")</b>)
+        транспортных средств, на которые выдано 
+        (<b>@Html.ActionLink((String)ViewBag.WBCount.ToString(), "Index", "Waybills")</b>)
+        путевых листов. <br/><br/>
+        Приятного рабочего дня!
+    </p>
+</p>
 
-@(X.Window()
-        .Title("Adding tab")
-        .Width(700)
-        .Height(500)
-        .Icon(Icon.Link)
-        .Layout(LayoutType.Border)
-        .Items(
-            X.MenuPanel()
-                .ID("MenuPanel1")
-                .Width(200)
-                .Region(Region.North)
-                .Menu(m => { 
-                    m.Add(X.MenuItem()
-                            .Text("Ext.NET")
-                            .OnClientClick("addTab(#{TabPanel1}, 'idClt', 'http://www.ext.net', this);"));
-                    m.Add(X.MenuItem()
-                        .Text("Ext.NET forums")
-                        .OnClientClick("addTab(#{TabPanel1}, 'idGgl', 'http://forums.ext.net', this);"));
-                    m.Add(X.MenuItem()
-                        .Text("Sencha")
-                        .OnClientClick("addTab(#{TabPanel1}, 'idExt', 'http://www.sencha.com', this);"));
-                }),
-                
-            X.TabPanel()
-                .ID("TabPanel1")
-                .Region(Region.Center)
-        )
-    )
+}

@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{76F9E56F-FBBD-4078-AEC3-8E40A7D2FA07}</ProjectGuid>
+    <ProjectGuid>{8EA529A1-2E72-4003-AF76-3BB6BCC8D04D}</ProjectGuid>
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -35,16 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ext.Net">
-      <HintPath>..\packages\Ext.NET.MVC.2.2.0\lib\net40\Ext.Net.dll</HintPath>
-    </Reference>
-    <Reference Include="Ext.Net.Utilities">
-      <HintPath>..\packages\Ext.NET.Utilities.2.2.1\lib\Ext.Net.Utilities.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -64,15 +55,14 @@
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
       <Private>True</Private>
@@ -99,9 +89,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Optimization">
-      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
@@ -118,64 +105,14 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Transformer.NET">
-      <HintPath>..\packages\Transformer.NET.2.1.1\lib\net35\Transformer.NET.dll</HintPath>
-    </Reference>
-    <Reference Include="WebActivatorEx">
-      <HintPath>..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
-    </Reference>
-    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
-    </Reference>
-    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.3.12153\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
-    </Reference>
-    <Reference Include="WebGrease">
-      <Private>True</Private>
-      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
-    </Reference>
-    <Reference Include="Antlr3.Runtime">
-      <Private>True</Private>
-      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AuthConfig.cs" />
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DriversController.cs" />
     <Compile Include="Controllers\EnterpriseController.cs" />
+    <Compile Include="Controllers\ObjEditorController.cs" />
+    <Compile Include="Controllers\OimController.cs" />
+    <Compile Include="Controllers\TcoController.cs" />
+    <Compile Include="Controllers\WaybillsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,85 +124,283 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Readme\Ext.NET.MVC\BREAKING_CHANGES.txt" />
-    <Content Include="App_Readme\Ext.NET.MVC\CHANGELOG.txt" />
-    <Content Include="App_Readme\Ext.NET.MVC\LICENSE.txt" />
-    <Content Include="App_Readme\Ext.NET.MVC\README.txt" />
-    <Content Include="App_Readme\Ext.NET.Utilities.LICENSE.txt" />
-    <Content Include="App_Readme\Ext.NET.Utilities.README.txt" />
-    <Content Include="App_Readme\Transformer.NET\LICENSE.txt" />
-    <Content Include="App_Readme\Transformer.NET\README.txt" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
-    <Content Include="Content\themes\base\jquery.ui.all.css" />
-    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
-    <Content Include="Content\themes\base\jquery.ui.base.css" />
-    <Content Include="Content\themes\base\jquery.ui.button.css" />
-    <Content Include="Content\themes\base\jquery.ui.core.css" />
-    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
-    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
-    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
-    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
-    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
-    <Content Include="Content\themes\base\jquery.ui.slider.css" />
-    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
-    <Content Include="Content\themes\base\jquery.ui.theme.css" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="favicon.ico" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="css\map.css" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.7.1.js" />
-    <Content Include="Scripts\jquery-1.7.1.min.js" />
-    <Content Include="Scripts\jquery-ui-1.8.20.js" />
-    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\knockout-2.1.0.debug.js" />
-    <Content Include="Scripts\knockout-2.1.0.js" />
-    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="images\geo\add_point_off.png" />
+    <Content Include="images\geo\add_point_on.png" />
+    <Content Include="images\geo\delete_off.png" />
+    <Content Include="images\geo\delete_on.png" />
+    <Content Include="images\geo\draw_circle_off.png" />
+    <Content Include="images\geo\draw_circle_on.png" />
+    <Content Include="images\geo\draw_line_off.png" />
+    <Content Include="images\geo\draw_line_on.png" />
+    <Content Include="images\geo\draw_polygon_off.png" />
+    <Content Include="images\geo\draw_polygon_on.png" />
+    <Content Include="images\geo\edit_off.png" />
+    <Content Include="images\geo\edit_on.png" />
+    <Content Include="images\geo\pan_off.png" />
+    <Content Include="images\geo\pan_on.png" />
+    <Content Include="images\geo\reshape_off.png" />
+    <Content Include="images\geo\reshape_on.png" />
+    <Content Include="images\geo\save_features_off.png" />
+    <Content Include="images\geo\save_features_on.png" />
+    <Content Include="images\geo\select_off.png" />
+    <Content Include="images\geo\select_on.png" />
+    <Content Include="images\geo\sel_delete_off.png" />
+    <Content Include="images\geo\sel_delete_on.png" />
+    <Content Include="images\objectsSigns\BRIDGE.png" />
+    <Content Include="images\objectsSigns\CIVIAL.png" />
+    <Content Include="images\objectsSigns\CROSSWALK.png" />
+    <Content Include="images\objectsSigns\DEFAULT.png" />
+    <Content Include="images\objectsSigns\FERRY.png" />
+    <Content Include="images\objectsSigns\green.png" />
+    <Content Include="images\objectsSigns\INDUSTRIAL.png" />
+    <Content Include="images\objectsSigns\OVERPASS.png" />
+    <Content Include="images\objectsSigns\PILLAR.png" />
+    <Content Include="images\objectsSigns\POI.png" />
+    <Content Include="images\objectsSigns\RAIL_CROSSING.png" />
+    <Content Include="images\objectsSigns\RAMPANT.png" />
+    <Content Include="images\objectsSigns\SKP.png" />
+    <Content Include="images\objectsSigns\TUNNEL.png" />
+    <Content Include="images\objectsSigns\VIADUCT.png" />
+    <Content Include="images\truck.png" />
+    <Content Include="scripts\map.js" />
+    <Content Include="scripts\mapStyles.js" />
+    <Content Include="scripts\objectEditor.js" />
+    <Content Include="scripts\OpenLayers-2.12\.gitignore" />
+    <Content Include="scripts\OpenLayers-2.12\apidoc_config\Languages.txt" />
+    <Content Include="scripts\OpenLayers-2.12\apidoc_config\Menu.txt" />
+    <Content Include="scripts\OpenLayers-2.12\apidoc_config\OL.css" />
+    <Content Include="scripts\OpenLayers-2.12\apidoc_config\Topics.txt" />
+    <Content Include="scripts\OpenLayers-2.12\art\arrows.svg" />
+    <Content Include="scripts\OpenLayers-2.12\art\layer-switcher-maximize.svg" />
+    <Content Include="scripts\OpenLayers-2.12\art\layer-switcher-minimize.svg" />
+    <Content Include="scripts\OpenLayers-2.12\art\marker.svg" />
+    <Content Include="scripts\OpenLayers-2.12\art\measuring-stick-off.svg" />
+    <Content Include="scripts\OpenLayers-2.12\art\measuring-stick-on.svg" />
+    <Content Include="scripts\OpenLayers-2.12\art\panning-hand-off.svg" />
+    <Content Include="scripts\OpenLayers-2.12\art\panning-hand-on.svg" />
+    <Content Include="scripts\OpenLayers-2.12\art\slider.svg" />
+    <Content Include="scripts\OpenLayers-2.12\art\zoom-world.svg" />
+    <Content Include="scripts\OpenLayers-2.12\art\zoombar.svg" />
+    <Content Include="scripts\OpenLayers-2.12\authors.txt" />
+    <Content Include="scripts\OpenLayers-2.12\build\closure-compiler\Externs.js" />
+    <Content Include="scripts\OpenLayers-2.12\build\license.txt" />
+    <Content Include="scripts\OpenLayers-2.12\build\README.txt" />
+    <Content Include="scripts\OpenLayers-2.12\img\blank.gif" />
+    <Content Include="scripts\OpenLayers-2.12\img\cloud-popup-relative.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\drag-rectangle-off.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\drag-rectangle-on.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\east-mini.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\layer-switcher-maximize.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\layer-switcher-minimize.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\marker-blue.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\marker-gold.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\marker-green.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\marker.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\measuring-stick-off.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\measuring-stick-on.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\north-mini.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\panning-hand-off.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\panning-hand-on.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\slider.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\south-mini.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\west-mini.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\zoom-minus-mini.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\zoom-plus-mini.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\zoom-world-mini.png" />
+    <Content Include="scripts\OpenLayers-2.12\img\zoombar.png" />
+    <Content Include="scripts\OpenLayers-2.12\lib\deprecated.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\Firebug\errorIcon.png" />
+    <Content Include="scripts\OpenLayers-2.12\lib\Firebug\firebug.css" />
+    <Content Include="scripts\OpenLayers-2.12\lib\Firebug\firebug.html" />
+    <Content Include="scripts\OpenLayers-2.12\lib\Firebug\firebug.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\Firebug\firebugx.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\Firebug\infoIcon.png" />
+    <Content Include="scripts\OpenLayers-2.12\lib\Firebug\license.txt" />
+    <Content Include="scripts\OpenLayers-2.12\lib\Firebug\readme.txt" />
+    <Content Include="scripts\OpenLayers-2.12\lib\Firebug\warningIcon.png" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Animation.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\BaseTypes.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\BaseTypes\Bounds.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\BaseTypes\Class.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\BaseTypes\Date.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\BaseTypes\Element.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\BaseTypes\LonLat.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\BaseTypes\Pixel.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\BaseTypes\Size.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Console.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\ArgParser.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\Attribution.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\Button.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\CacheRead.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\CacheWrite.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\DragFeature.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\DragPan.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\DrawFeature.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\EditingToolbar.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\Geolocate.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\GetFeature.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\Graticule.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\KeyboardDefaults.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\LayerSwitcher.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\Measure.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\ModifyFeature.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\MousePosition.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\Navigation.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\NavigationHistory.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\NavToolbar.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\OverviewMap.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\Pan.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\Panel.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\PanPanel.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\PanZoom.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\PanZoomBar.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\Permalink.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\PinchZoom.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\Scale.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\ScaleLine.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\SelectFeature.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\SLDSelect.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\Snapping.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\Split.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\TouchNavigation.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\TransformFeature.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\UTFGrid.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\WMSGetFeatureInfo.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\WMTSGetFeatureInfo.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\Zoom.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\ZoomBox.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\ZoomIn.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\ZoomOut.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\ZoomPanel.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Control\ZoomToMaxExtent.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Events.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Events\buttonclick.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Feature.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Feature\Vector.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Filter.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Filter\Comparison.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Filter\FeatureId.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Filter\Function.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Filter\Logical.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Filter\Spatial.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\ArcXML.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\ArcXML\Features.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\Atom.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\Context.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\CQL.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\CSWGetDomain.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\CSWGetDomain\v2_0_2.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\CSWGetRecords.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\CSWGetRecords\v2_0_2.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\Filter.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\Filter\v1.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\Filter\v1_0_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\Filter\v1_1_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\GeoJSON.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\GeoRSS.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\GML.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\GML\Base.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\GML\v2.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\GML\v3.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\GPX.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\JSON.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\KML.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\OGCExceptionReport.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\OSM.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\OWSCommon.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\OWSCommon\v1.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\OWSCommon\v1_0_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\OWSCommon\v1_1_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\OWSContext.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\OWSContext\v0_3_1.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\QueryStringFilter.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\SLD.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\SLD\v1.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\SLD\v1_0_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\SLD\v1_0_0_GeoServer.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\SOSCapabilities.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\SOSCapabilities\v1_0_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\SOSGetFeatureOfInterest.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\SOSGetObservation.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\Text.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WCSGetCoverage.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WFS.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WFSCapabilities.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WFSCapabilities\v1.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WFSCapabilities\v1_0_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WFSCapabilities\v1_1_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WFSDescribeFeatureType.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WFST.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WFST\v1.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WFST\v1_0_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WFST\v1_1_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WKT.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMC.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMC\v1.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMC\v1_0_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMC\v1_1_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMSCapabilities.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMSCapabilities\v1.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMSCapabilities\v1_1.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMSCapabilities\v1_1_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMSCapabilities\v1_1_1.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMSCapabilities\v1_1_1_WMSC.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMSCapabilities\v1_3.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMSCapabilities\v1_3_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMSDescribeLayer.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMSDescribeLayer\v1_1.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMSGetFeatureInfo.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMTSCapabilities.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WMTSCapabilities\v1_0_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WPSCapabilities.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WPSCapabilities\v1_0_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WPSDescribeProcess.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\WPSExecute.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\XLS.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\XLS\v1.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\XLS\v1_1_0.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\XML.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Format\XML\VersionedOGC.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Geometry.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Handler.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Icon.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Kinetic.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Lang.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Layer.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Map.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Marker.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Popup.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Projection.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Protocol.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Renderer.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Request.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Rule.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\SingleFile.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Spherical.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Strategy.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Style.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Style2.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\StyleMap.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Symbolizer.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Tile.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Tween.js" />
+    <Content Include="scripts\OpenLayers-2.12\lib\OpenLayers\Util.js" />
+    <Content Include="scripts\OpenLayers-2.12\license.txt" />
+    <Content Include="scripts\OpenLayers-2.12\OpenLayers.debug.js" />
+    <Content Include="scripts\OpenLayers-2.12\OpenLayers.js" />
+    <Content Include="scripts\OpenLayers-2.12\OpenLayers.light.debug.js" />
+    <Content Include="scripts\OpenLayers-2.12\OpenLayers.light.js" />
+    <Content Include="scripts\OpenLayers-2.12\OpenLayers.mobile.debug.js" />
+    <Content Include="scripts\OpenLayers-2.12\OpenLayers.mobile.js" />
+    <Content Include="scripts\propertiesHTMLProvider.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -273,36 +408,16 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\_references.js" />
-    <Content Include="Images\accent.png" />
-    <Content Include="Images\bullet.png" />
-    <Content Include="Images\heroAccent.png" />
-    <Content Include="Images\orderedList0.png" />
-    <Content Include="Images\orderedList1.png" />
-    <Content Include="Images\orderedList2.png" />
-    <Content Include="Images\orderedList3.png" />
-    <Content Include="Images\orderedList4.png" />
-    <Content Include="Images\orderedList5.png" />
-    <Content Include="Images\orderedList6.png" />
-    <Content Include="Images\orderedList7.png" />
-    <Content Include="Images\orderedList8.png" />
-    <Content Include="Images\orderedList9.png" />
-    <Content Include="Views\Enterprise\Index.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Filters\" />
+    <Folder Include="scripts\OpenLayers-2.12\doc\devdocs\files\OpenLayers\Control\" />
+    <Folder Include="scripts\OpenLayers-2.12\doc\devdocs\files\OpenLayers\Lang\" />
+    <Folder Include="scripts\OpenLayers-2.12\doc\devdocs\files\OpenLayers\Strategy\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\SampleView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\Enterprise.edmx">
@@ -311,13 +426,78 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Readme\Ext.NET.MVC\Sample.Web.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_BaseLayout.cshtml" />
+    <Content Include="Views\Enterprise\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Enterprise\Read.cshtml" />
+    <Content Include="Views\Drivers\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Drivers\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Drivers\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Drivers\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Drivers\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Tco\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Tco\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Tco\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Tco\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Tco\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Waybills\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Waybills\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Waybills\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Waybills\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Waybills\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Oim\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="scripts\OpenLayers-2.12\apidoc_config\Data\ClassHierarchy.nd" />
+    <None Include="scripts\OpenLayers-2.12\apidoc_config\Data\ConfigFileInfo.nd" />
+    <None Include="scripts\OpenLayers-2.12\apidoc_config\Data\FileInfo.nd" />
+    <None Include="scripts\OpenLayers-2.12\apidoc_config\Data\ImageFileInfo.nd" />
+    <None Include="scripts\OpenLayers-2.12\apidoc_config\Data\ImageReferenceTable.nd" />
+    <None Include="scripts\OpenLayers-2.12\apidoc_config\Data\IndexInfo.nd" />
+    <None Include="scripts\OpenLayers-2.12\apidoc_config\Data\PreviousMenuState.nd" />
+    <None Include="scripts\OpenLayers-2.12\apidoc_config\Data\PreviousSettings.nd" />
+    <None Include="scripts\OpenLayers-2.12\apidoc_config\Data\SymbolTable.nd" />
+    <None Include="scripts\OpenLayers-2.12\build\build.py" />
+    <None Include="scripts\OpenLayers-2.12\build\buildUncompressed.py" />
+    <None Include="scripts\OpenLayers-2.12\build\full.cfg" />
+    <None Include="scripts\OpenLayers-2.12\build\light.cfg" />
+    <None Include="scripts\OpenLayers-2.12\build\lite.cfg" />
+    <None Include="scripts\OpenLayers-2.12\build\mobile.cfg" />
+    <None Include="scripts\OpenLayers-2.12\build\tests.cfg" />
+    <None Include="scripts\OpenLayers-2.12\readme.md" />
+    <Content Include="Views\ObjEditor\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -335,7 +515,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>18738</DevelopmentServerPort>
+          <DevelopmentServerPort>34242</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

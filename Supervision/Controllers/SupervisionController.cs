@@ -3,23 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Supervision.Models;
 
 namespace Supervision.Controllers
 {
     public class SupervisionController : Controller
     {
+        SupervisionEntities db = new SupervisionEntities();
         //
         // GET: /Supervision/
 
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult Home()
-        {
-            ViewBag.SPCount = 5;
-            ViewBag.OrgCount = 21;            
+            ViewBag.SPCount = db.SPECIAL_PERMITS.ToList().Count;
+            ViewBag.OrgCount = db.ORGANIZATIONS.ToList().Count; 
             return View();
         }
     }

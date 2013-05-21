@@ -13,12 +13,13 @@ namespace Supervision.Controllers
     public class OrganizationsController : Controller
     {
         private SupervisionEntities db = new SupervisionEntities();
+        
 
         //
         // GET: /Organizations/
 
         public ActionResult Index()
-        {
+        {            
             return View();
         }
 
@@ -72,8 +73,7 @@ namespace Supervision.Controllers
         {
             try
             {
-                db.ORGANIZATIONS.Attach(org);
-                db.ObjectStateManager.ChangeObjectState(org, EntityState.Modified);
+                db.ORGANIZATIONS.AddObject(org);
                 db.SaveChanges();
 
                 return new RestResult
@@ -93,12 +93,11 @@ namespace Supervision.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Delete)]
-        public RestResult Destroy(int id)
+        public RestResult Destroy(Organization org)
         {
             try
             {
-                Organization organization = db.ORGANIZATIONS.Single(o => o.ORGANIZATION_ID == id);
-                db.ORGANIZATIONS.DeleteObject(organization);
+                db.ORGANIZATIONS.DeleteObject(org);
 
                 return new RestResult
                 {

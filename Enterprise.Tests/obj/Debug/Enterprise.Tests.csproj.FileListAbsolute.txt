@@ -15,9 +15,6 @@ D:\Документы\Универ\8 семестр\Программирован
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Enterprise.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Enterprise.Tests\bin\Debug\System.Web.WebPages.dll
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Enterprise.Tests\bin\Debug\System.Web.WebPages.Razor.dll
-D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Enterprise.Tests\bin\Debug\System.Web.Optimization.dll
-D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Enterprise.Tests\bin\Debug\WebGrease.dll
-D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Enterprise.Tests\bin\Debug\Antlr3.Runtime.dll
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Enterprise.Tests\bin\Debug\Enterprise.pdb
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Enterprise.Tests\bin\Debug\Newtonsoft.Json.xml
 D:\Документы\Универ\8 семестр\Программирование\repo\CDGT\Enterprise.Tests\bin\Debug\System.Net.Http.xml

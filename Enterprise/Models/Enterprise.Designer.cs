@@ -18,9 +18,8 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region Метаданные связи EDM
 
-[assembly: EdmRelationshipAttribute("Enterprise", "WB_DRIVER_FK", "DRIVER", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Enterprise.Models.DRIVER), "WAYBILL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Enterprise.Models.WAYBILL), true)]
-[assembly: EdmRelationshipAttribute("Enterprise", "WB_TCO_FK", "TCO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Enterprise.Models.TCO), "WAYBILL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Enterprise.Models.WAYBILL), true)]
-[assembly: EdmRelationshipAttribute("Enterprise", "USERS_ROLES_FK", "ROLE", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Enterprise.Models.ROLE), "USER", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Enterprise.Models.USER), true)]
+[assembly: EdmRelationshipAttribute("Enterprise", "WB_DRIVER_FK", "DRIVER", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Enterprise.Models.DRIVER), "WAYBILLS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Enterprise.Models.WAYBILLS), true)]
+[assembly: EdmRelationshipAttribute("Enterprise", "WB_TCO_FK", "TCO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Enterprise.Models.TCO), "WAYBILLS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Enterprise.Models.WAYBILLS), true)]
 
 #endregion
 
@@ -75,125 +74,76 @@ namespace Enterprise.Models
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<DRIVER> DRIVERs
+        public ObjectSet<DRIVER> DRIVER
         {
             get
             {
-                if ((_DRIVERs == null))
+                if ((_DRIVER == null))
                 {
-                    _DRIVERs = base.CreateObjectSet<DRIVER>("DRIVERs");
+                    _DRIVER = base.CreateObjectSet<DRIVER>("DRIVER");
                 }
-                return _DRIVERs;
+                return _DRIVER;
             }
         }
-        private ObjectSet<DRIVER> _DRIVERs;
+        private ObjectSet<DRIVER> _DRIVER;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<TCO> TCOes
+        public ObjectSet<TCO> TCO
         {
             get
             {
-                if ((_TCOes == null))
+                if ((_TCO == null))
                 {
-                    _TCOes = base.CreateObjectSet<TCO>("TCOes");
+                    _TCO = base.CreateObjectSet<TCO>("TCO");
                 }
-                return _TCOes;
+                return _TCO;
             }
         }
-        private ObjectSet<TCO> _TCOes;
+        private ObjectSet<TCO> _TCO;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<WAYBILL> WAYBILLS
+        public ObjectSet<WAYBILLS> WAYBILLS
         {
             get
             {
                 if ((_WAYBILLS == null))
                 {
-                    _WAYBILLS = base.CreateObjectSet<WAYBILL>("WAYBILLS");
+                    _WAYBILLS = base.CreateObjectSet<WAYBILLS>("WAYBILLS");
                 }
                 return _WAYBILLS;
             }
         }
-        private ObjectSet<WAYBILL> _WAYBILLS;
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        public ObjectSet<USER> USERS
-        {
-            get
-            {
-                if ((_USERS == null))
-                {
-                    _USERS = base.CreateObjectSet<USER>("USERS");
-                }
-                return _USERS;
-            }
-        }
-        private ObjectSet<USER> _USERS;
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        public ObjectSet<ROLE> ROLES
-        {
-            get
-            {
-                if ((_ROLES == null))
-                {
-                    _ROLES = base.CreateObjectSet<ROLE>("ROLES");
-                }
-                return _ROLES;
-            }
-        }
-        private ObjectSet<ROLE> _ROLES;
+        private ObjectSet<WAYBILLS> _WAYBILLS;
 
         #endregion
-   
         #region Методы AddTo
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet DRIVERs. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet DRIVER. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToDRIVERs(DRIVER dRIVER)
+        public void AddToDRIVER(DRIVER dRIVER)
         {
-            base.AddObject("DRIVERs", dRIVER);
+            base.AddObject("DRIVER", dRIVER);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet TCOes. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet TCO. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToTCOes(TCO tCO)
+        public void AddToTCO(TCO tCO)
         {
-            base.AddObject("TCOes", tCO);
+            base.AddObject("TCO", tCO);
         }
     
         /// <summary>
         /// Устаревший метод для добавления новых объектов в набор EntitySet WAYBILLS. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToWAYBILLS(WAYBILL wAYBILL)
+        public void AddToWAYBILLS(WAYBILLS wAYBILLS)
         {
-            base.AddObject("WAYBILLS", wAYBILL);
-        }
-    
-        /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet USERS. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
-        /// </summary>
-        public void AddToUSERS(USER uSER)
-        {
-            base.AddObject("USERS", uSER);
-        }
-    
-        /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet ROLES. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
-        /// </summary>
-        public void AddToROLES(ROLE rOLE)
-        {
-            base.AddObject("ROLES", rOLE);
+            base.AddObject("WAYBILLS", wAYBILLS);
         }
 
         #endregion
@@ -291,122 +241,18 @@ namespace Enterprise.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Enterprise", "WB_DRIVER_FK", "WAYBILL")]
-        public EntityCollection<WAYBILL> WAYBILLS
+        [EdmRelationshipNavigationPropertyAttribute("Enterprise", "WB_DRIVER_FK", "WAYBILLS")]
+        public EntityCollection<WAYBILLS> WAYBILLS
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WAYBILL>("Enterprise.WB_DRIVER_FK", "WAYBILL");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WAYBILLS>("Enterprise.WB_DRIVER_FK", "WAYBILLS");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WAYBILL>("Enterprise.WB_DRIVER_FK", "WAYBILL", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// Нет доступной документации по метаданным.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Enterprise", Name="ROLE")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class ROLE : EntityObject
-    {
-        #region Фабричный метод
-    
-        /// <summary>
-        /// Создание нового объекта ROLE.
-        /// </summary>
-        /// <param name="rOLE_ID">Исходное значение свойства ROLE_ID.</param>
-        public static ROLE CreateROLE(global::System.Int32 rOLE_ID)
-        {
-            ROLE rOLE = new ROLE();
-            rOLE.ROLE_ID = rOLE_ID;
-            return rOLE;
-        }
-
-        #endregion
-        #region Свойства-примитивы
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String ROLE_NAME
-        {
-            get
-            {
-                return _ROLE_NAME;
-            }
-            set
-            {
-                OnROLE_NAMEChanging(value);
-                ReportPropertyChanging("ROLE_NAME");
-                _ROLE_NAME = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("ROLE_NAME");
-                OnROLE_NAMEChanged();
-            }
-        }
-        private global::System.String _ROLE_NAME;
-        partial void OnROLE_NAMEChanging(global::System.String value);
-        partial void OnROLE_NAMEChanged();
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ROLE_ID
-        {
-            get
-            {
-                return _ROLE_ID;
-            }
-            set
-            {
-                if (_ROLE_ID != value)
-                {
-                    OnROLE_IDChanging(value);
-                    ReportPropertyChanging("ROLE_ID");
-                    _ROLE_ID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ROLE_ID");
-                    OnROLE_IDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ROLE_ID;
-        partial void OnROLE_IDChanging(global::System.Int32 value);
-        partial void OnROLE_IDChanged();
-
-        #endregion
-    
-        #region Свойства навигации
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Enterprise", "USERS_ROLES_FK", "USER")]
-        public EntityCollection<USER> USERS
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<USER>("Enterprise.USERS_ROLES_FK", "USER");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<USER>("Enterprise.USERS_ROLES_FK", "USER", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WAYBILLS>("Enterprise.WB_DRIVER_FK", "WAYBILLS", value);
                 }
             }
         }
@@ -571,18 +417,18 @@ namespace Enterprise.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Enterprise", "WB_TCO_FK", "WAYBILL")]
-        public EntityCollection<WAYBILL> WAYBILLS
+        [EdmRelationshipNavigationPropertyAttribute("Enterprise", "WB_TCO_FK", "WAYBILLS")]
+        public EntityCollection<WAYBILLS> WAYBILLS
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WAYBILL>("Enterprise.WB_TCO_FK", "WAYBILL");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WAYBILLS>("Enterprise.WB_TCO_FK", "WAYBILLS");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WAYBILL>("Enterprise.WB_TCO_FK", "WAYBILL", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WAYBILLS>("Enterprise.WB_TCO_FK", "WAYBILLS", value);
                 }
             }
         }
@@ -593,216 +439,24 @@ namespace Enterprise.Models
     /// <summary>
     /// Нет доступной документации по метаданным.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Enterprise", Name="USER")]
+    [EdmEntityTypeAttribute(NamespaceName="Enterprise", Name="WAYBILLS")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class USER : EntityObject
+    public partial class WAYBILLS : EntityObject
     {
         #region Фабричный метод
     
         /// <summary>
-        /// Создание нового объекта USER.
-        /// </summary>
-        /// <param name="uSERNAME">Исходное значение свойства USERNAME.</param>
-        public static USER CreateUSER(global::System.String uSERNAME)
-        {
-            USER uSER = new USER();
-            uSER.USERNAME = uSERNAME;
-            return uSER;
-        }
-
-        #endregion
-        #region Свойства-примитивы
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String USERNAME
-        {
-            get
-            {
-                return _USERNAME;
-            }
-            set
-            {
-                if (_USERNAME != value)
-                {
-                    OnUSERNAMEChanging(value);
-                    ReportPropertyChanging("USERNAME");
-                    _USERNAME = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("USERNAME");
-                    OnUSERNAMEChanged();
-                }
-            }
-        }
-        private global::System.String _USERNAME;
-        partial void OnUSERNAMEChanging(global::System.String value);
-        partial void OnUSERNAMEChanged();
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String PASSWORD
-        {
-            get
-            {
-                return _PASSWORD;
-            }
-            set
-            {
-                OnPASSWORDChanging(value);
-                ReportPropertyChanging("PASSWORD");
-                _PASSWORD = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("PASSWORD");
-                OnPASSWORDChanged();
-            }
-        }
-        private global::System.String _PASSWORD;
-        partial void OnPASSWORDChanging(global::System.String value);
-        partial void OnPASSWORDChanged();
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String NAME
-        {
-            get
-            {
-                return _NAME;
-            }
-            set
-            {
-                OnNAMEChanging(value);
-                ReportPropertyChanging("NAME");
-                _NAME = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("NAME");
-                OnNAMEChanged();
-            }
-        }
-        private global::System.String _NAME;
-        partial void OnNAMEChanging(global::System.String value);
-        partial void OnNAMEChanged();
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String USER_ID
-        {
-            get
-            {
-                return _USER_ID;
-            }
-            set
-            {
-                OnUSER_IDChanging(value);
-                ReportPropertyChanging("USER_ID");
-                _USER_ID = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("USER_ID");
-                OnUSER_IDChanged();
-            }
-        }
-        private global::System.String _USER_ID;
-        partial void OnUSER_IDChanging(global::System.String value);
-        partial void OnUSER_IDChanged();
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ROLE_ID
-        {
-            get
-            {
-                return _ROLE_ID;
-            }
-            set
-            {
-                OnROLE_IDChanging(value);
-                ReportPropertyChanging("ROLE_ID");
-                _ROLE_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ROLE_ID");
-                OnROLE_IDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _ROLE_ID;
-        partial void OnROLE_IDChanging(Nullable<global::System.Int32> value);
-        partial void OnROLE_IDChanged();
-
-        #endregion
-    
-        #region Свойства навигации
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Enterprise", "USERS_ROLES_FK", "ROLE")]
-        public ROLE ROLE
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ROLE>("Enterprise.USERS_ROLES_FK", "ROLE").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ROLE>("Enterprise.USERS_ROLES_FK", "ROLE").Value = value;
-            }
-        }
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<ROLE> ROLEReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ROLE>("Enterprise.USERS_ROLES_FK", "ROLE");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ROLE>("Enterprise.USERS_ROLES_FK", "ROLE", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// Нет доступной документации по метаданным.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Enterprise", Name="WAYBILL")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class WAYBILL : EntityObject
-    {
-        #region Фабричный метод
-    
-        /// <summary>
-        /// Создание нового объекта WAYBILL.
+        /// Создание нового объекта WAYBILLS.
         /// </summary>
         /// <param name="wAYBILL_ID">Исходное значение свойства WAYBILL_ID.</param>
         /// <param name="tCO">Исходное значение свойства TCO.</param>
-        public static WAYBILL CreateWAYBILL(global::System.Int32 wAYBILL_ID, global::System.String tCO)
+        public static WAYBILLS CreateWAYBILLS(global::System.Int32 wAYBILL_ID, global::System.String tCO)
         {
-            WAYBILL wAYBILL = new WAYBILL();
-            wAYBILL.WAYBILL_ID = wAYBILL_ID;
-            wAYBILL.TCO = tCO;
-            return wAYBILL;
+            WAYBILLS wAYBILLS = new WAYBILLS();
+            wAYBILLS.WAYBILL_ID = wAYBILL_ID;
+            wAYBILLS.TCO = tCO;
+            return wAYBILLS;
         }
 
         #endregion

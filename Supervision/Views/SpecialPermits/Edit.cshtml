@@ -1,0 +1,73 @@
+﻿@model Supervision.Models.SpecialPermit
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section main {
+    <h2>
+        Редактировать СР</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Специальное разрешение</legend>
+            @Html.HiddenFor(model => model.SP_ID)
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ORGANIZATION_ID, "ORGANIZATION")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("ORGANIZATION_ID", String.Empty)
+                @Html.ValidationMessageFor(model => model.ORGANIZATION_ID)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ROUTE_DESCRIPTION)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ROUTE_DESCRIPTION)
+                @Html.ValidationMessageFor(model => model.ROUTE_DESCRIPTION)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.START_DATE)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.START_DATE)
+                @Html.ValidationMessageFor(model => model.START_DATE)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FINISH_DATE)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FINISH_DATE)
+                @Html.ValidationMessageFor(model => model.FINISH_DATE)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CARGO_TYPE, "CARGO_TYPES")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("CARGO_TYPE", String.Empty)
+                @Html.ValidationMessageFor(model => model.CARGO_TYPE)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.STATUS)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.STATUS)
+                @Html.ValidationMessageFor(model => model.STATUS)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.TRIPS_COUNT)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.TRIPS_COUNT)
+                @Html.ValidationMessageFor(model => model.TRIPS_COUNT)
+            </div>
+            <p>
+                <input type="submit" value="Сохранить" />
+            </p>
+        </fieldset>
+    }
+    <div>
+        @Html.ActionLink("Вернуться к списку", "Index")
+    </div>
+}

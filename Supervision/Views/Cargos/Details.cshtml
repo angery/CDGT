@@ -1,0 +1,22 @@
+﻿@model Supervision.Models.CargoType
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section main {
+    <h2>
+        Информация о типе груза</h2>
+    <fieldset>
+        <legend>Тип груза</legend>
+        <div class="display-label">
+            Наименование
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.TITLE)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Редактировать", "Edit", new { id = Model.CODE }) |
+        @Html.ActionLink("Вернуться к списку", "Index")
+    </p>
+}

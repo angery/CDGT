@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Enterprise.Models.TCO>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+@section main {
+    <h2>
+        ОТК</h2>
+    <p>
+        @Html.ActionLink("Добавить", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                Гос.номер
+            </th>
+            <th>
+                Код АТ
+            </th>
+            <th>
+                Марка
+            </th>
+            <th>
+                Модель
+            </th>
+            <th>
+                Грузоподъемность
+            </th>
+            <th>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.STATE_NUMBER)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AT_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MARK)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MODEL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WEIGHT)
+                </td>
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.STATE_NUMBER }) |
+                    @Html.ActionLink("Информация", "Details", new { id = item.STATE_NUMBER }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.STATE_NUMBER })
+                </td>
+            </tr>
+        }
+    </table>
+}

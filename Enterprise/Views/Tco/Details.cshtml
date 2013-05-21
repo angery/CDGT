@@ -1,0 +1,45 @@
+﻿@model Enterprise.Models.TCO
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Details";
+}
+@section main {
+    <h2>
+        Информация об ОТК</h2>
+    <fieldset>
+        <legend>ОТК</legend>
+        <div class="display-label">
+            Гос.номер
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.STATE_NUMBER)
+        </div><div class="display-label">
+            Код АТ
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.AT_ID)
+        </div>
+        <div class="display-label">
+            Марка ТС
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.MARK)
+        </div>
+        <div class="display-label">
+            Модель ТС
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.MODEL)
+        </div>
+        <div class="display-label">
+            Грузоподъемность
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.WEIGHT)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Изменить", "Edit", new { id = Model.STATE_NUMBER }) |
+        @Html.ActionLink("Вернуться к списку", "Index")
+    </p>
+}

@@ -1,0 +1,28 @@
+﻿@model Supervision.Models.CargoType
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section main {
+    <h2>
+        Удалить</h2>
+    <h3>
+        Вы действительно хотите удалить тип груза?</h3>
+    <fieldset>
+        <legend>Тип груза</legend>
+        <div class="display-label">
+            Наименование
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.TITLE)
+        </div>
+    </fieldset>
+    @using (Html.BeginForm())
+    {
+        <p>
+            <input type="submit" value="Удалить" />
+            |
+            @Html.ActionLink("Вернуться к списку", "Index")
+        </p>
+    }
+}

@@ -1,0 +1,67 @@
+﻿@model Supervision.Models.SpecialPermit
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section main {
+
+<h2>Информация о спец.разрешении</h2>
+
+<fieldset>
+    <legend>Спец.разрешение</legend>
+
+    <div class="display-label">
+         Организация
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ORGANIZATION.TITLE)
+    </div>
+
+    <div class="display-label">
+         Описание маршрута
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ROUTE_DESCRIPTION)
+    </div>
+
+    <div class="display-label">
+         Дата начала срока действия
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.START_DATE)
+    </div>
+
+    <div class="display-label">
+         Дата окончания срока действия
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FINISH_DATE)
+    </div>
+
+    <div class="display-label">
+         Тип груза
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CARGO_TYPES.TITLE)
+    </div>
+
+    <div class="display-label">
+         Статус СР
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.STATUS)
+    </div>
+
+    <div class="display-label">
+         Количество поездок
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TRIPS_COUNT)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.SP_ID }) |
+    @Html.ActionLink("Вернуться к списку", "Index")
+</p>
+}

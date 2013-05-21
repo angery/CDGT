@@ -1,0 +1,69 @@
+﻿@model Enterprise.Models.TCO
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Edit";
+}
+@section main {
+<h2>Редактировать</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ОТК</legend>
+
+        @Html.HiddenFor(model => model.STATE_NUMBER)
+
+        <div class="editor-label">
+            Гос.номер
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.STATE_NUMBER)
+            @Html.ValidationMessageFor(model => model.STATE_NUMBER)
+        </div>
+        
+        <div class="editor-label">
+            Код АТ
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AT_ID)
+            @Html.ValidationMessageFor(model => model.AT_ID)
+        </div>
+
+        <div class="editor-label">
+            Марка
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MARK)
+            @Html.ValidationMessageFor(model => model.MARK)
+        </div>
+
+        <div class="editor-label">
+            Модель
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MODEL)
+            @Html.ValidationMessageFor(model => model.MODEL)
+        </div>
+
+        <div class="editor-label">
+            Грузоподъемность
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WEIGHT)
+            @Html.ValidationMessageFor(model => model.WEIGHT)
+        </div>
+
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Вернуться к списку", "Index")
+</div>
+
+
+}

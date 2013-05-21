@@ -3,7 +3,7 @@
   <Alias Key="Model" Value="Enterprise" />
   <Alias Key="Target" Value="Enterprise.Store" />
   <EntityContainerMapping CdmEntityContainer="EnterpriseContainer" StorageEntityContainer="EnterpriseStoreContainer">
-    <EntitySetMapping Name="DRIVERs">
+    <EntitySetMapping Name="DRIVER">
       <EntityTypeMapping TypeName="Enterprise.DRIVER">
         <MappingFragment StoreEntitySet="DRIVER">
           <ScalarProperty Name="DRIVER_ID" ColumnName="DRIVER_ID" />
@@ -11,7 +11,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TCOes">
+    <EntitySetMapping Name="TCO">
       <EntityTypeMapping TypeName="Enterprise.TCO">
         <MappingFragment StoreEntitySet="TCO">
           <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
@@ -23,7 +23,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="WAYBILLS">
-      <EntityTypeMapping TypeName="Enterprise.WAYBILL">
+      <EntityTypeMapping TypeName="Enterprise.WAYBILLS">
         <MappingFragment StoreEntitySet="WAYBILLS">
           <ScalarProperty Name="STATUS" ColumnName="STATUS" />
           <ScalarProperty Name="MILEAGE_FINISH" ColumnName="MILEAGE_FINISH" />
@@ -33,25 +33,6 @@
           <ScalarProperty Name="DRIVER" ColumnName="DRIVER" />
           <ScalarProperty Name="TCO" ColumnName="TCO" />
           <ScalarProperty Name="WAYBILL_ID" ColumnName="WAYBILL_ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="USERS">
-      <EntityTypeMapping TypeName="Enterprise.USER">
-        <MappingFragment StoreEntitySet="USERS">
-          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
-          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
-          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ROLES">
-      <EntityTypeMapping TypeName="Enterprise.ROLE">
-        <MappingFragment StoreEntitySet="ROLES">
-          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
-          <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

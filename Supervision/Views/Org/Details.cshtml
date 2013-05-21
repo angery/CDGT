@@ -1,0 +1,21 @@
+﻿@model Supervision.Models.Organization
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section main {
+    <h2>
+        Информация об организации</h2>
+    <fieldset>
+        <legend>Организация</legend>
+        <div class="display-label">
+            Наименование
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.TITLE)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Редактировать", "Edit", new { id = Model.ORGANIZATION_ID }) |
+        @Html.ActionLink("Вернуться к списку", "Index")
+    </p>
+}

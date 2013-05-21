@@ -1,86 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Enterprise.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+<Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl" Alias="Self" Namespace="Enterprise.Store" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2">
   <EntityContainer Name="EnterpriseStoreContainer">
-    <EntitySet Name="DRIVER" EntityType="Enterprise.Store.DRIVER" store:Type="Tables" Schema="RSUBD" />
-    <EntitySet Name="ROLES" EntityType="Enterprise.Store.ROLES" store:Type="Tables" Schema="RSUBD" />
-    <EntitySet Name="TCO" EntityType="Enterprise.Store.TCO" store:Type="Tables" Schema="RSUBD" />
-    <EntitySet Name="USERS" EntityType="Enterprise.Store.USERS" store:Type="Tables" Schema="RSUBD" />
-    <EntitySet Name="WAYBILLS" EntityType="Enterprise.Store.WAYBILLS" store:Type="Tables" Schema="RSUBD" />
-    <AssociationSet Name="USERS_ROLES_FK" Association="Enterprise.Store.USERS_ROLES_FK">
-      <End Role="ROLES" EntitySet="ROLES" />
-      <End Role="USERS" EntitySet="USERS" />
-    </AssociationSet>
+    <EntitySet Name="DRIVER" EntityType="Enterprise.Store.DRIVER" Schema="RSUBD" store:Type="Tables" />
+    <EntitySet Name="TCO" EntityType="Enterprise.Store.TCO" Schema="RSUBD" store:Type="Tables" />
+    <EntitySet Name="WAYBILLS" EntityType="Enterprise.Store.WAYBILLS" Schema="RSUBD" store:Type="Tables" />
     <AssociationSet Name="WB_DRIVER_FK" Association="Enterprise.Store.WB_DRIVER_FK">
-      <End Role="DRIVER" EntitySet="DRIVER" />
-      <End Role="WAYBILLS" EntitySet="WAYBILLS" />
+      <End EntitySet="DRIVER" Role="DRIVER" />
+      <End EntitySet="WAYBILLS" Role="WAYBILLS" />
     </AssociationSet>
     <AssociationSet Name="WB_TCO_FK" Association="Enterprise.Store.WB_TCO_FK">
-      <End Role="TCO" EntitySet="TCO" />
-      <End Role="WAYBILLS" EntitySet="WAYBILLS" />
+      <End EntitySet="TCO" Role="TCO" />
+      <End EntitySet="WAYBILLS" Role="WAYBILLS" />
     </AssociationSet>
   </EntityContainer>
+  <!--Ошибки, обнаруженные при создании:
+      предупреждение 6005: Тип данных "sdo_geometry" не поддерживается, столбец "THE_GEOM" в таблице "RSUBD.CURRENT_TELEDATA" исключен.
+      -->
   <EntityType Name="DRIVER">
     <Key>
       <PropertyRef Name="DRIVER_ID" />
     </Key>
-    <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="255" />
-    <Property Name="DRIVER_ID" Type="number" Nullable="false" Precision="7" />
-  </EntityType>
-  <EntityType Name="ROLES">
-    <Key>
-      <PropertyRef Name="ROLE_ID" />
-    </Key>
-    <Property Name="ROLE_NAME" Type="varchar2" MaxLength="20" />
-    <Property Name="ROLE_ID" Type="number" Nullable="false" Precision="7" />
+    <Property Name="NAME" Nullable="false" MaxLength="255" Type="varchar2" />
+    <Property Name="DRIVER_ID" Nullable="false" Precision="7" Type="number" />
   </EntityType>
   <EntityType Name="TCO">
     <Key>
       <PropertyRef Name="STATE_NUMBER" />
     </Key>
-    <Property Name="STATE_NUMBER" Type="varchar2" Nullable="false" MaxLength="20" />
-    <Property Name="AT_ID" Type="varchar2" MaxLength="20" />
-    <Property Name="MARK" Type="varchar2" MaxLength="50" />
-    <Property Name="MODEL" Type="varchar2" MaxLength="50" />
-    <Property Name="WEIGHT" Type="number" Precision="7" />
-  </EntityType>
-  <EntityType Name="USERS">
-    <Key>
-      <PropertyRef Name="USERNAME" />
-    </Key>
-    <Property Name="USERNAME" Type="varchar2" Nullable="false" MaxLength="50" />
-    <Property Name="PASSWORD" Type="varchar2" MaxLength="50" />
-    <Property Name="NAME" Type="varchar2" MaxLength="255" />
-    <Property Name="USER_ID" Type="varchar2" MaxLength="7" />
-    <Property Name="ROLE_ID" Type="number" Precision="7" />
+    <Property Name="STATE_NUMBER" Nullable="false" MaxLength="20" Type="varchar2" />
+    <Property Name="AT_ID" MaxLength="20" Type="varchar2" />
+    <Property Name="MARK" MaxLength="50" Type="varchar2" />
+    <Property Name="MODEL" MaxLength="50" Type="varchar2" />
+    <Property Name="WEIGHT" Precision="7" Type="number" />
   </EntityType>
   <EntityType Name="WAYBILLS">
     <Key>
       <PropertyRef Name="WAYBILL_ID" />
     </Key>
-    <Property Name="WAYBILL_ID" Type="number" Nullable="false" Precision="7" />
-    <Property Name="TCO" Type="varchar2" Nullable="false" MaxLength="20" />
-    <Property Name="DRIVER" Type="number" Precision="7" />
-    <Property Name="FUEL_GIVEN" Type="number" Precision="5" />
-    <Property Name="FUEL_LOST" Type="number" Precision="5" />
-    <Property Name="MILEAGE_START" Type="number" Precision="10" />
-    <Property Name="MILEAGE_FINISH" Type="number" Precision="10" />
-    <Property Name="STATUS" Type="number" Precision="7" />
+    <Property Name="WAYBILL_ID" Nullable="false" Precision="7" Type="number" />
+    <Property Name="TCO" Nullable="false" MaxLength="20" Type="varchar2" />
+    <Property Name="DRIVER" Precision="7" Type="number" />
+    <Property Name="FUEL_GIVEN" Precision="5" Type="number" />
+    <Property Name="FUEL_LOST" Precision="5" Type="number" />
+    <Property Name="MILEAGE_START" Precision="10" Type="number" />
+    <Property Name="MILEAGE_FINISH" Precision="10" Type="number" />
+    <Property Name="STATUS" Precision="7" Type="number" />
   </EntityType>
-  <Association Name="USERS_ROLES_FK">
-    <End Role="ROLES" Type="Enterprise.Store.ROLES" Multiplicity="0..1" />
-    <End Role="USERS" Type="Enterprise.Store.USERS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ROLES">
-        <PropertyRef Name="ROLE_ID" />
-      </Principal>
-      <Dependent Role="USERS">
-        <PropertyRef Name="ROLE_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="WB_DRIVER_FK">
-    <End Role="DRIVER" Type="Enterprise.Store.DRIVER" Multiplicity="0..1" />
-    <End Role="WAYBILLS" Type="Enterprise.Store.WAYBILLS" Multiplicity="*" />
+    <End Type="Enterprise.Store.DRIVER" Multiplicity="0..1" Role="DRIVER" />
+    <End Type="Enterprise.Store.WAYBILLS" Multiplicity="*" Role="WAYBILLS" />
     <ReferentialConstraint>
       <Principal Role="DRIVER">
         <PropertyRef Name="DRIVER_ID" />
@@ -91,8 +59,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="WB_TCO_FK">
-    <End Role="TCO" Type="Enterprise.Store.TCO" Multiplicity="1" />
-    <End Role="WAYBILLS" Type="Enterprise.Store.WAYBILLS" Multiplicity="*" />
+    <End Type="Enterprise.Store.TCO" Multiplicity="1" Role="TCO" />
+    <End Type="Enterprise.Store.WAYBILLS" Multiplicity="*" Role="WAYBILLS" />
     <ReferentialConstraint>
       <Principal Role="TCO">
         <PropertyRef Name="STATE_NUMBER" />

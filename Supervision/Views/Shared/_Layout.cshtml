@@ -1,71 +1,57 @@
-﻿@*Данная страница страницей не яввляется, а является шаблоном для всех остальных страниц в пределах Надзора.
-Необходимо описать:
-    - header
-    - левое меню
-    - центральную панель
-*@ @*Ext.NET Razor ResourceManager definition 
-    - лучше объявить в шаблоне, чтобы не таскать по мелким страницам!!
-    - поиграться с темами (?)
-*@
+﻿<html>
 <head>
+    <style>
+        A:link
+        {
+            color: #aaaaaa /*The color of the link*/;
+        }
+        A:visited
+        {
+            color: #888888 /*The color of the visited link*/;
+        }
+        A:hover
+        {
+            color: #bbbbbb /*The color of the mouseover or 'hover' link*/;
+        }
+        body
+        {
+            font-family: sans-serif;
+        }
+    </style>
     @RenderSection("script", required: false)
 </head>
-
-@(Html.X().ResourceManager())
-@(
- Html.X().Viewport()
-            .Layout(LayoutType.Border)
-            .Items(
-                Html.X().Panel()
-                    .Region(Region.West)
-                    .Title("УГАДН: ОГ-Надзор ")
-                    .Icon(Ext.Net.Icon.Car)
-                    .Width(200)
-                    .Collapsible(true)
-                    .Split(true)
-                    .MinWidth(175)
-                    .MaxWidth(400)
-                    .MarginSpec("5 0 5 5")
-                    .Layout(LayoutType.Accordion)
-                    .Items(panelitems =>
-                    {
-                        panelitems.Add(
-                            Html.X().MenuPanel()
-                            .Title("Меню")
-                            .Menu(menu =>
-                            {
-                                menu.Items.Add(
-                                    Html.X().MenuItem()
-                                    .Text("Главная")
-                                    .Icon(Ext.Net.Icon.House)
-                                    .OnClientClick("alert('Переход на главную');")
-                                );
-                                menu.Items.Add(
-                                    Html.X().MenuItem()
-                                    .Text("Спец.разрешения")
-                                    .Icon(Ext.Net.Icon.PageWhiteText)
-                                    .OnClientClick("alert('СР');")
-                                );
-                                menu.Items.Add(
-                                    Html.X().MenuItem()
-                                    .Text("Организации")
-                                    .Icon(Ext.Net.Icon.Vcard)
-                                    .OnClientClick("alert('Организации');")
-                                );
-                                menu.Items.Add(
-                                    Html.X().MenuItem()
-                                    .Text("Отчеты")
-                                    .Icon(Ext.Net.Icon.Table)
-                                    .OnClientClick("alert('Отчеты');")
-                                );
-                            })
-                            );
-                    })
-                 ,
-
-               Html.X().Panel()
-                    .Region(Region.Center)
-                    .MarginSpec("5 5 5 0")
-                    .ItemsFromSection(this, "main")
-            )
-        )
+<body onload='if (window.init) init(37.62, 55.75, 13);'>
+    <table width="100%" border="0">
+        <tr>
+            <td colspan="2" style="background-color: #dddddd; color: #555; padding: 5 5 5 5;
+                border-radius: 10px" valign="middle">
+                <a href="../Supervision/Index"> <img src="../../images/rostransnadzor.png" width="40px" height="40px" /></a>
+                <div style="display:inline; vertical-align:middle">
+                    УГАДН: Контроль за перевозками ОГ</div>
+            </td>
+        </tr>
+        <tr valign="top">
+            <td style="background-color: #dddddd; color: #555; text-align: top; padding: 15 15 15 15;
+                border-radius: 10px; width: 50px;">
+                <b>Меню</b><br />
+                @Html.ActionLink("Спец.разрешения", "Index", "SpecialPermits")<br />
+                @Html.ActionLink("Организации", "Index", "Org")<br />
+                @Html.ActionLink("Мониторинг ТС", "Index", "Oim")<br />
+                @Html.ActionLink("Типы грузов", "Index", "Cargos")<br />
+            </td>
+            <td style="background-color: white; height: 200px; text-align: top; padding: 15 5 5 35;
+                border-radius: 10px">
+                @RenderSection("main")
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color: #dddddd; color: #555; padding: 5 5 5 5;
+                border-radius: 10px">
+                <p style="text-align: right">
+                    © 2013 <a href="mailto:gerasimov.pk@gmail.com">Павел Герасимов</a>
+                </p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

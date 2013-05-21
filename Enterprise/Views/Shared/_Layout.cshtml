@@ -1,48 +1,58 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
-        </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
-                </div>
-            </div>
-        </footer>
-
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+﻿<html>
+<head>
+    <style>
+        A:link
+        {
+            color: #000000 /*The color of the link*/;
+        }
+        A:visited
+        {
+            color: #333333 /*The color of the visited link*/;
+        }
+        A:hover
+        {
+            color: #000000 /*The color of the mouseover or 'hover' link*/;
+        }
+        body
+        {
+            font-family: sans-serif;
+        }
+    </style>
+    @RenderSection("script", required: false)
+</head>
+<body onload='if (window.init) init(37.62, 55.75, 13);'>
+    <table width="100%" border="0">
+        <tr>
+            <td colspan="2" style="background-color: #FF9900; color: #555; padding: 5 5 5 5;
+                border-radius: 10px" valign="middle">
+                <a href="../Enterprise/Index"> <img src="../../images/truck.png" width="46px" height="35px" /></a>
+                <div style="display:inline; vertical-align:middle">
+                    ОАО "Некст" - перевозки опасных грузов</div>
+            </td>
+        </tr>
+        <tr valign="top">
+            <td style="background-color: #FF9900; color: #555; text-align: top; padding: 15 15 15 15;
+                border-radius: 10px; width: 50px;">
+                <b>Меню</b><br />
+                @Html.ActionLink("Оперативная информация", "Index", "Oim")<br />
+                @Html.ActionLink("Транспортные средства", "Index", "Tco")<br />
+                @Html.ActionLink("Перевозки", "Index", "Waybills")<br />
+                @Html.ActionLink("Водители", "Index", "Drivers")<br />
+                @Html.ActionLink("Редактор зон", "Index", "ObjEditor")<br />
+            </td>
+            <td style="background-color: white; height: 200px; text-align: top; padding: 15 5 5 35;
+                border-radius: 10px">
+                @RenderSection("main")
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color: #FF9900; color: #555; padding: 5 5 5 5;
+                border-radius: 10px">
+                <p style="text-align: right">
+                    © 2013 <a href="mailto:gerasimov.pk@gmail.com">Павел Герасимов</a>
+                </p>
+            </td>
+        </tr>
+    </table>
+</body>
 </html>

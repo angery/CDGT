@@ -1,0 +1,22 @@
+﻿@model Enterprise.Models.DRIVER
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section main {
+    <h2>
+        Информация о водителе</h2>
+    <fieldset>
+        <legend>Водитель</legend>
+        <div class="display-label">
+            Имя
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.NAME)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Изменить", "Edit", new { id = Model.DRIVER_ID }) |
+        @Html.ActionLink("Вернуться к списку", "Index")
+    </p>
+}

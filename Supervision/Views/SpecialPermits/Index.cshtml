@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Supervision.Models.SpecialPermit>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section main {
+    <h2>
+        Специальные разрешения</h2>
+    <p>
+        @Html.ActionLink("Выдать новое", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ORGANIZATION.TITLE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ROUTE_DESCRIPTION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.START_DATE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FINISH_DATE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CARGO_TYPES.TITLE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.STATUS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TRIPS_COUNT)
+            </th>
+            <th>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ORGANIZATION.TITLE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ROUTE_DESCRIPTION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.START_DATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FINISH_DATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CARGO_TYPES.TITLE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.STATUS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TRIPS_COUNT)
+                </td>
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.SP_ID }) |
+                    @Html.ActionLink("Информация", "Details", new { id = item.SP_ID }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.SP_ID })
+                </td>
+            </tr>
+        }
+    </table>
+}

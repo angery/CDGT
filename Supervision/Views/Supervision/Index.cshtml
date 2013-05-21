@@ -3,9 +3,15 @@
 }
 
 @section main{
-   @(Html.X().Panel()
-        .Title("Управление государственного автодорожного надзора - перевозки опасных грузов")
-        .Border(false)        
-        .ContentFromAction("Home")
-    )
+   <p style="margin: 5 5 5 5; padding: 5 5 5 5;">
+    <h2>
+        &nbsp&nbsp Добро пожаловать в систему контроля перевозок опасных грузов!</h2>
+    <p style="margin: 5 5 5 5; padding: 5 5 5 5;">
+        В настоящее время под вашим контролем находится (<b>@Html.ActionLink((String)ViewBag.OrgCount.ToString(), "Index", "Org")</b>)
+        организаций, на которые выдано (<b>@Html.ActionLink((String)ViewBag.SPCount.ToString(), "Index", "SpecialPermits")</b>)
+        специальных разрешений на перевозку опасных грузов. <br/><br/>
+        Приятного рабочего дня!
+    </p>
+</p>
+
 }

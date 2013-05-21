@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Enterprise.Models.DRIVER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section main
+{
+    <h2>
+        Водители</h2>
+    <p>
+        @Html.ActionLink("Добавить", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                Имя
+            </th>
+            <th>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NAME)
+                </td>
+                <td>
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.DRIVER_ID }) |
+                    @Html.ActionLink("Информация", "Details", new { id = item.DRIVER_ID }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.DRIVER_ID })
+                </td>
+            </tr>
+        }
+    </table>
+}

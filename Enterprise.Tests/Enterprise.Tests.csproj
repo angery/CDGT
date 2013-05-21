@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DBC2C28A-5443-43CF-8D74-4F68B838A752}</ProjectGuid>
+    <ProjectGuid>{E26383C6-3B9A-444F-9428-EA6264AC9460}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Enterprise.Tests</RootNamespace>
@@ -98,7 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -108,7 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Enterprise\Enterprise.csproj">
-      <Project>{76F9E56F-FBBD-4078-AEC3-8E40A7D2FA07}</Project>
+      <Project>{8EA529A1-2E72-4003-AF76-3BB6BCC8D04D}</Project>
       <Name>Enterprise</Name>
     </ProjectReference>
   </ItemGroup>

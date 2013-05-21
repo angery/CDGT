@@ -1,0 +1,58 @@
+﻿@model Enterprise.Models.WAYBILLS
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Details";
+}
+@section main {
+    <h2>
+        Информация о перевозке</h2>
+    <fieldset>
+        <legend>Путевой лист</legend>
+        <div class="display-label">
+            Гос.номер ТС
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.TCO1.STATE_NUMBER)
+        </div>
+        <div class="display-label">
+            Водитель
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.DRIVER1.NAME)
+        </div>
+        <div class="display-label">
+            Топлива выдано
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.FUEL_GIVEN)
+        </div>
+        <div class="display-label">
+            Топлива осталось
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.FUEL_LOST)
+        </div>
+        <div class="display-label">
+            Начальный пробег
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.MILEAGE_START)
+        </div>
+        <div class="display-label">
+            Конечный пробег
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.MILEAGE_FINISH)
+        </div>
+        <div class="display-label">
+            Статус
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.STATUS)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Редактировать", "Edit", new { id = Model.WAYBILL_ID }) |
+        @Html.ActionLink("Вернуться к списку", "Index")
+    </p>
+}

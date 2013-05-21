@@ -1,0 +1,28 @@
+﻿@model Enterprise.Models.DRIVER
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section main {
+    <h2>
+        Удалить</h2>
+    <h3>
+        Вы действительно хотите удалить информацию о водителе?</h3>
+    <fieldset>
+        <legend>Водитель</legend>
+        <div class="display-label">
+            Имя
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.NAME)
+        </div>
+    </fieldset>
+    @using (Html.BeginForm())
+    {
+        <p>
+            <input type="submit" value="Delete" />
+            |
+            @Html.ActionLink("Вернуться к списку", "Index")
+        </p>
+    }
+}

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Enterprise.Models.WAYBILLS>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+@section main {
+    <h2>
+        Перевозки</h2>
+    <p>
+        @Html.ActionLink("Новая перевозка", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                ОТК
+            </th>
+            <th>
+                Водитель
+            </th>
+            <th>
+                Выдано топлива
+            </th>
+            <th>
+                Топлива осталось
+            </th>
+            <th>
+                Начальный пробег
+            </th>
+            <th>
+                Конечный пробег
+            </th>
+            <th>
+                Статус ПЛ
+            </th>
+            <th>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TCO1.STATE_NUMBER)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DRIVER1.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FUEL_GIVEN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FUEL_LOST)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MILEAGE_START)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MILEAGE_FINISH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.STATUS)
+                </td>
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.WAYBILL_ID }) |
+                    @Html.ActionLink("Информация", "Details", new { id = item.WAYBILL_ID }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.WAYBILL_ID })
+                </td>
+            </tr>
+        }
+    </table>
+}

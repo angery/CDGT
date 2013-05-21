@@ -1,0 +1,58 @@
+﻿@model Enterprise.Models.TCO
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Create";
+}
+<h2>
+    Создать</h2>
+@section main {
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Объект телематического контроля</legend>
+            <div class="editor-label">
+                Гос.номер
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.STATE_NUMBER)
+                @Html.ValidationMessageFor(model => model.STATE_NUMBER)
+            </div>
+            <div class="editor-label">
+                Код абонентского терминала
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.AT_ID)
+                @Html.ValidationMessageFor(model => model.AT_ID)
+            </div>
+            <div class="editor-label">
+                Марка ТС
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MARK)
+                @Html.ValidationMessageFor(model => model.MARK)
+            </div>
+            <div class="editor-label">
+                Модель ТС
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MODEL)
+                @Html.ValidationMessageFor(model => model.MODEL)
+            </div>
+            <div class="editor-label">
+                Грузоподъемность
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.WEIGHT)
+                @Html.ValidationMessageFor(model => model.WEIGHT)
+            </div>
+            <p>
+                <input type="submit" value="Сохранить" />
+            </p>
+        </fieldset>
+    }
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}

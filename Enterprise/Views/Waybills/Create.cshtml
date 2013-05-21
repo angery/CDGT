@@ -1,0 +1,72 @@
+﻿@model Enterprise.Models.WAYBILLS
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Create";
+}
+@section main {
+    <h2>
+        Создание перевозки</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Путевой лист</legend>
+            <div class="editor-label">
+                ОТК
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("TCO", String.Empty)
+                @Html.ValidationMessageFor(model => model.TCO)
+            </div>
+            <div class="editor-label">
+                Водитель
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("DRIVER", String.Empty)
+                @Html.ValidationMessageFor(model => model.DRIVER)
+            </div>
+            <div class="editor-label">
+                Топлива выдано
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FUEL_GIVEN)
+                @Html.ValidationMessageFor(model => model.FUEL_GIVEN)
+            </div>
+            <div class="editor-label">
+                Топлива осталось
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FUEL_LOST)
+                @Html.ValidationMessageFor(model => model.FUEL_LOST)
+            </div>
+            <div class="editor-label">
+                Начальный пробег
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MILEAGE_START)
+                @Html.ValidationMessageFor(model => model.MILEAGE_START)
+            </div>
+            <div class="editor-label">
+                Конечный пробег
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MILEAGE_FINISH)
+                @Html.ValidationMessageFor(model => model.MILEAGE_FINISH)
+            </div>
+            <div class="editor-label">
+                Статус ПЛ
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.STATUS)
+                @Html.ValidationMessageFor(model => model.STATUS)
+            </div>
+            <p>
+                <input type="submit" value="Выдать" />
+            </p>
+        </fieldset>
+    }
+    <div>
+        @Html.ActionLink("Вернуться к списку", "Index")
+    </div>   
+}

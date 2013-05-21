@@ -1,0 +1,27 @@
+﻿@model Supervision.Models.Organization
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section main {
+    <h2>
+        Удалить</h2>
+    <h3>
+        Вы действительно хотите удалить сведения об организации?</h3>
+    <fieldset>
+        <legend>Организация </legend>
+        <div class="display-label">
+            Наименование
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.TITLE)
+        </div>
+    </fieldset>
+    @using (Html.BeginForm())
+    {
+        <p>
+            <input type="submit" value="Delete" />
+            |
+            @Html.ActionLink("Вернуться к списку", "Index")
+        </p>
+    }
+}
